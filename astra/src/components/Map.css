@@ -1,0 +1,11 @@
+body {
+    background-image: 
+        url(https://news.gsu.edu/files/2019/05/iStock-516189065.jpg);
+}
+
+.sun img{
+    width: 50px;
+    height: 50px;
+    margin-left: 43%;
+    margin-top: 150%;
+}
