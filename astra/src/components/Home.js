@@ -8,7 +8,7 @@ class Home extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
   handleClick () {
-    this.setState(() => ({      
+    this.setState(closeHome=> ({      
       homeIsOpen: false
     })
     )
@@ -17,10 +17,10 @@ class Home extends React.Component {
 
   render () {
     return (
-      <div className="Homepage">
-        <img src="https://apod.nasa.gov/apod/image/heao_fleet_big.gif" alt="satellites" />
-        <button onClick = {this.handleClick}>Test</button>
-      </div>
+      <section className="Homepage">
+        <button className="enter-button" onClick = {this.handleClick}>Test</button>
+      </section>
+      
     )
   }
 }
