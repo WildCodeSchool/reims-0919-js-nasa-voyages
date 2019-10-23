@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 import PlanetMap from './components/Map';
-import Homepage from './components/Homepage';
+import UtilisatorVehicleForm from './components/UtilisatorVehicleForm';
 
 function App() {
   return (
     <div className="App">
-      <Homepage />
+      <UtilisatorVehicleForm />
     </div>
   );
 }
