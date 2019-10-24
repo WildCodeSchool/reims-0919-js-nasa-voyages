@@ -1,6 +1,17 @@
 import React from 'react'
+import GameFormPlanet from './GameFormPlanet'
+import GameFormVehicle from './GameFormVehicle'
 
-function Game () {
 
-}
+  function Game() {
+    return (
+      <div className="Game">
+        <GameFormPlanet/> 
+        <GameFormPlanet/>
+
+        <GameFormVehicle/>
+
+      </div>
+    );
+  }
 export default Game

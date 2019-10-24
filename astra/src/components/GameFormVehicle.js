@@ -1,9 +1,9 @@
 import React from 'react'
 
-class GameFormPlanet extends React.Component {
+class GameFormVehicle extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: 'earth'};
+    this.state = {value: 'train'};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -14,7 +14,7 @@ class GameFormPlanet extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('Your favorite planet is: ' + this.state.value);
+    alert('Your vehicle is: ' + this.state.value);
     event.preventDefault();
   }
 
@@ -22,12 +22,11 @@ class GameFormPlanet extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Choose your planet:
+          Choose your vehicle:
           <select value={this.state.value} onChange={this.handleChange}>
-            <option value="sun">Sun</option>
-            <option value="earth">Earth</option>
-            <option value="mercury">Mercury</option>
-            <option value="saturn">Saturn</option>
+            <option value="train">Train</option>
+            <option value="rocket">Rocket</option>
+            <option value="moped">Moped</option>
           </select>
         </label>
         <input type="submit" value="Submit" />
@@ -35,4 +34,4 @@ class GameFormPlanet extends React.Component {
     );
   }
 }
-export default GameFormPlanet
+export default GameFormVehicle
