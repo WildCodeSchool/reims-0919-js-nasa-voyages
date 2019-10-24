@@ -8,17 +8,15 @@ class Home extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
   handleClick () {
-    this.setState(closeHome=> ({      
+    this.setState(closeHome => ({      
       homeIsOpen: false
-    })
-    )
-    console.log(this.state)
+    }))
   }
 
   render () {
     return (
-      <section className="Homepage">
-        <button className="enter-button" onClick = {this.handleClick}>Test</button>
+      <section className={this.state.homeIsOpen ? "Homepage" : "Disabled-Homepage"}>
+        <button className="enter-button" onClick = {this.handleClick}>Enter</button>
       </section>
       
     )
