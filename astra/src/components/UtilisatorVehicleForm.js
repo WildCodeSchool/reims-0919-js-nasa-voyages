@@ -4,7 +4,7 @@ class UtilisatorVehicleForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      vehicle: '',
+      userVehicle: '',
       speed: '',
     };
     this.handleChange = this.handleChange.bind(this);
@@ -15,7 +15,7 @@ class UtilisatorVehicleForm extends Component {
   }
 
   handleChange(event) {
-    this.setState({ vehicle: event.target.value });
+    this.setState({ userVehicle: event.target.value });
   }
 
   handleSpeedChange(event) {
@@ -30,9 +30,10 @@ class UtilisatorVehicleForm extends Component {
           id='vehicleName'
           name='vehicleName'
           type='text'
-          value={this.state.vehicle}
+          value={this.state.userVehicle}
           onChange={this.handleChange}
-        />
+        /> 
+        <br/>
         <label htmlFor='vehicleName'>Speed Average : </label>
         <input
           id='speedAverage'
@@ -41,7 +42,9 @@ class UtilisatorVehicleForm extends Component {
           value={this.state.speed}
           onChange={this.handleSpeedChange}
         />
+        <p>{this.state.userVehicle}</p>
       </form>
+      
     )
   }
 }
