@@ -6,7 +6,7 @@ import UtilisatorVehicleForm from './components/UtilisatorVehicleForm';
 function App() {
   return (
     <div className="App">
-      <UtilisatorVehicleForm />
+      <Navbar />
     </div>
   );
 }
