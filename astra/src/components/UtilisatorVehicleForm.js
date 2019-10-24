@@ -16,12 +16,10 @@ class UtilisatorVehicleForm extends Component {
 
   handleChange(event) {
     this.setState({ vehicle: event.target.value });
-    console.log(this.state.vehicle)
   }
 
   handleSpeedChange(event) {
     this.setState({ speed: event.target.value });
-    console.log(this.state.speed)
   }
   
   render () {
@@ -34,9 +32,7 @@ class UtilisatorVehicleForm extends Component {
           type='text'
           value={this.state.vehicle}
           onChange={this.handleChange}
-        />  
-        <p>{this.state.vehicle}</p>
-      
+        />
         <label htmlFor='vehicleName'>Speed Average : </label>
         <input
           id='speedAverage'
@@ -44,8 +40,7 @@ class UtilisatorVehicleForm extends Component {
           type='number'
           value={this.state.speed}
           onChange={this.handleSpeedChange}
-        />  
-        <p>{this.state.speed}</p>
+        />
       </form>
     )
   }
