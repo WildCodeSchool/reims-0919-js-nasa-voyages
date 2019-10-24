@@ -3,18 +3,27 @@ import React from 'react'
 class GameFormPlanet extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: 'earth'};
+    this.state = {
+      depart: 'earth',
+      arrival: 'saturn',
+    };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleDepartChange = this.handleDepartChange.bind(this);
+    this.handleArrivalChange = this.handleArrivalChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
+  handleDepartChange(event) {
+    console.log("hello", event.target.value)
+    this.setState({depart: event.target.value});
+  }
+  handleArrivalChange(event) {
+    this.setState({arrival: event.target.value});
   }
 
   handleSubmit(event) {
-    alert('Your favorite planet is: ' + this.state.value);
+    console.log(this.state.depart, this.state.arrival)
+    alert(`Your depart is ${this.state.depart} and your arrival is ${this.state.arrival}`);
     event.preventDefault();
   }
 
@@ -23,7 +32,17 @@ class GameFormPlanet extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           Choose your planet:
-          <select value={this.state.value} onChange={this.handleChange}>
+          <select value={this.state.depart} onChange={this.handleDepartChange}>
+            <option value="sun">Sun</option>
+            <option value="earth">Earth</option>
+            <option value="mercury">Mercury</option>
+            <option value="saturn">Saturn</option>
+          </select>
+        </label>
+        <input type="submit" value="Submit" />
+        <label>
+          Choose your planet:
+          <select value={this.state.arrival} onChange={this.handleArrivalChange}>
             <option value="sun">Sun</option>
             <option value="earth">Earth</option>
             <option value="mercury">Mercury</option>

@@ -7,7 +7,6 @@ import GameFormVehicle from './GameFormVehicle'
     return (
       <div className="Game">
         <GameFormPlanet/> 
-        <GameFormPlanet/>
 
         <GameFormVehicle/>
 
