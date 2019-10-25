@@ -14,7 +14,6 @@ class GameFormPlanet extends React.Component {
   }
 
   handleDepartChange(event) {
-    console.log("hello", event.target.value)
     this.setState({depart: event.target.value});
   }
   handleArrivalChange(event) {
