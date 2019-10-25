@@ -1,4 +1,5 @@
 import React from 'react'
+import UtilisatorVehicleForm from './UtilisatorVehicleForm';
 
 class GameFormVehicle extends React.Component {
   constructor(props) {
