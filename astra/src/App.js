@@ -4,6 +4,7 @@ import Home from './components/Home'
 import Game from './components/Game'
 import UtilisatorVehicleForm from './components/UtilisatorVehicleForm'
 import Navbar from './components/Navbar'
+import Lexicon from './components/Lexicon/PlanetData'
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
       <div className = "application">
       <Game />
       <UtilisatorVehicleForm />
+      </div>
+      <div>
+        <Lexicon />
       </div>
     </div>
   );
