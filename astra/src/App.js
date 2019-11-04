@@ -4,7 +4,7 @@ import Home from './components/Home'
 import Game from './components/Game'
 import UtilisatorVehicleForm from './components/UtilisatorVehicleForm'
 import Navbar from './components/Navbar'
-import Lexicon from './components/Lexicon/PlanetData'
+import Lexicon from './components/PlanetData'
 
 function App() {
   return (
