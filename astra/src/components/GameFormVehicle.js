@@ -13,7 +13,7 @@ class GameFormVehicle extends React.Component {
   }
 
   handleSubmit(event) {
-    alert(`Your vehicle is: ${this.props.vehicle}`);
+    alert(`Your vehicle is: ${this.state.vehicle}`);
     event.preventDefault();
   }
 
@@ -22,10 +22,11 @@ class GameFormVehicle extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           Choose your vehicle:
-          <select value={this.props.vehicle} onChange={this.handleVehicleChange}>
-            <option value="train">Train</option>
-            <option value="rocket">Rocket</option>
-            <option value="moped">Moped</option>
+          <select defaultValue={this.props.vehicle_options[0]} onChange={this.handleVehicleChange}>
+            {this.props.vehicle_options.map(option => {
+              return (
+              <option key={`vehicule_${option}`} value={option}>{option}</option>
+            )})}
           </select>
         </label>
         <input type="submit" value="Submit" />

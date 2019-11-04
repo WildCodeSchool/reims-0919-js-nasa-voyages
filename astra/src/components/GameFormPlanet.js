@@ -10,7 +10,6 @@ class GameFormPlanet extends React.Component {
   }
 
   handleDepartChange(event) {
-    console.log("hello", event.target.value)
     this.setState({depart: event.target.value});
   }
   handleArrivalChange(event) {
@@ -18,7 +17,6 @@ class GameFormPlanet extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log(this.state.depart, this.state.arrival)
     alert(`Your depart is ${this.state.depart} and your arrival is ${this.state.arrival}`);
     event.preventDefault();
   }
@@ -28,21 +26,21 @@ class GameFormPlanet extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           Choose your planet:
-          <select value={this.props.depart} onChange={this.handleDepartChange}>
-            <option value="sun">Sun</option>
-            <option value="earth">Earth</option>
-            <option value="mercury">Mercury</option>
-            <option value="saturn">Saturn</option>
+          <select defaultValue={this.props.planet_options[0]} onChange={this.handleDepartChange}>
+            {this.props.planet_options.map(option => {
+              return (
+              <option key={`depart_${option}`} value={option}>{option}</option>
+            )})}
           </select>
         </label>
         <input type="submit" value="Submit" />
         <label>
           Choose your planet:
-          <select value={this.props.arrival} onChange={this.handleArrivalChange}>
-            <option value="sun">Sun</option>
-            <option value="earth">Earth</option>
-            <option value="mercury">Mercury</option>
-            <option value="saturn">Saturn</option>
+          <select defaultValue={this.props.planet_options[0]} onChange={this.handleArrivalChange}>
+            {this.props.planet_options.map(option => {
+              return (
+              <option key ={`arrival_${option}`} value={option}>{option}</option>
+            )})}
           </select>
         </label>
         <input type="submit" value="Submit" />
