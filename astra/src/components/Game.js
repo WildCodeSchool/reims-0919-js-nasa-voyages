@@ -1,7 +1,8 @@
 import React from "react";
 import GameFormPlanet from "./GameFormPlanet";
 import GameFormVehicle from "./GameFormVehicle";
-import calculator from "./calculator.js";
+import UtilisatorVehicleForm from "./UtilisatorVehicleForm";
+//import calculator from "./calculator.js";
 
 const planetList = [
   {
@@ -34,32 +35,76 @@ const vehicleList = [
   {
     vehicle: "Moto",
     speed: "120",
-    image: ""
   },
   {
     vehicle: "Fusée",
     speed: "12000",
-    image: ""
   },
   {
     vehicle: "Vélo",
     speed: "10",
-    image: ""
-  },
+  }
 ];
 
 class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      planet_options: planetList.map(option => option.englishName ),
-      vehicle_options: vehicleList.map(option => option.vehicle ),
+      planet_options: planetList.map(option => option.englishName),
+      vehicle_options: vehicleList.map(option => option.vehicle),
       depart: "",
       arrival: "",
-      vehicle: ""
+      vehicle: "",
+      customSpeed: "",
+      customVehicle: "",
     };
+    this.handleDepartChange = this.handleDepartChange.bind(this);
+    this.handleArrivalChange = this.handleArrivalChange.bind(this);
+    this.handleVehicleChange = this.handleVehicleChange.bind(this);
+    this.handleCustomVehicleChange = this.handleCustomVehicleChange.bind(this);
+    this.handleCustomSpeedChange = this.handleCustomSpeedChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmitNewVehicle = this.handleSubmitNewVehicle.bind(this);
   }
+  handleDepartChange(event) {
+    this.setState({ depart: event.target.value });
+  }
+  handleArrivalChange(event) {
+    this.setState({ arrival: event.target.value });
+  }
+  handleVehicleChange(event) {
+    this.setState({ vehicle: event.target.value });
+  }
+  handleCustomVehicleChange(event) {
+    this.setState({ customVehicle: event.target.value });
+  }
+
+  handleCustomSpeedChange(event) {
+    this.setState({ customSpeed: event.target.value });
+  }
+
+  handleSubmit(event) {
+
+    event.preventDefault();
   
+    const result = this.state.depart - this.state.arrival;
+
+    if (result < 0) {
+      console.log(-result);
+      return -result;
+    } else {
+      console.log("yo"+ result);
+      return result;
+    }
+  }
+
+  handleSubmitNewVehicle(event) {
+    vehicleList[3] = {
+      "vehicle": this.state.customVehicle,
+      "speed": this.state.customSpeed,}
+    console.log(vehicleList);
+    this.setState({vehicle_options: vehicleList.map(option => option.vehicle)})
+  }
 
   render() {
     return (
@@ -68,8 +113,26 @@ class Game extends React.Component {
           depart={this.state.depart}
           arrival={this.state.arrival}
           planet_options={this.state.planet_options}
+          handleDepartChange={this.handleDepartChange}
+          handleArrivalChange={this.handleArrivalChange}
+          handleSubmit={this.handleSubmit}
         />
-        <GameFormVehicle vehicle_options={this.state.vehicle_options} />
+        <GameFormVehicle
+          vehicle_options={this.state.vehicle_options}
+          handleVehicleChange={this.handleVehicleChange}
+          handleSubmit={this.handleSubmit}
+        />
+        <input type="submit" value="Submit" onClick={this.handleSubmit} />
+
+        <UtilisatorVehicleForm
+          handleCustomVehicleChange={this.handleCustomVehicleChange}
+          handleCustomSpeedChange={this.handleCustomSpeedChange}
+        />
+        <input
+          type="submit"
+          value="Submit"
+          onClick={this.handleSubmitNewVehicle}
+        />
       </div>
     );
   }

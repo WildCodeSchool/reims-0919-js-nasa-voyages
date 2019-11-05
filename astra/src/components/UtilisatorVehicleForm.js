@@ -1,37 +1,16 @@
 import React, {Component} from 'react';
 
 class UtilisatorVehicleForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userVehicle: '',
-      speed: '',
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSpeedChange = this.handleSpeedChange.bind(this);
-  }
-  handleSubmit(event) {
-    event.preventDefault();
-  }
-
-  handleChange(event) {
-    this.setState({ userVehicle: event.target.value });
-  }
-
-  handleSpeedChange(event) {
-    this.setState({ speed: event.target.value });
-  }
-  
   render () {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.props.handleSubmit}>
         <label htmlFor='vehicleName'>Name your vehicle : </label>
         <input
           id='vehicleName'
           name='vehicleName'
           type='text'
-          value={this.state.userVehicle}
-          onChange={this.handleChange}
+          value={this.props.customVehicle}
+          onChange={this.props.handleCustomVehicleChange}
         /> 
         <br/>
         <label htmlFor='vehicleName'>Set your speed average : </label>
@@ -39,10 +18,10 @@ class UtilisatorVehicleForm extends Component {
           id='speedAverage'
           name='speedAverage'
           type='number'
-          value={this.state.speed}
-          onChange={this.handleSpeedChange}
+          value={this.props.customSpeed}
+          onChange={this.props.handleCustomSpeedChange}
         />
-        <p>{this.state.userVehicle}</p>
+        <p>{this.props.userVehicle}</p>
       </form>
       
     )
