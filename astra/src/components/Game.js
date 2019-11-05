@@ -97,7 +97,7 @@ class Game extends React.Component {
   }
 
   handleSubmitNewVehicle(event) {
-    vehicleList[vehicleList.length + 1] = {
+    vehicleList[vehicleList.length] = {
       vehicle: this.state.customVehicle,
       speed: this.state.customSpeed
     };
