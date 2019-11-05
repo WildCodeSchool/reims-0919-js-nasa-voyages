@@ -2,7 +2,6 @@ import React from "react";
 import GameFormPlanet from "./GameFormPlanet";
 import GameFormVehicle from "./GameFormVehicle";
 import UtilisatorVehicleForm from "./UtilisatorVehicleForm";
-//import calculator from "./calculator.js";
 
 const planetList = [
   {
@@ -34,15 +33,15 @@ const planetList = [
 const vehicleList = [
   {
     vehicle: "Moto",
-    speed: "120",
+    speed: "120"
   },
   {
     vehicle: "Fusée",
-    speed: "12000",
+    speed: "12000"
   },
   {
     vehicle: "Vélo",
-    speed: "10",
+    speed: "10"
   }
 ];
 
@@ -84,26 +83,28 @@ class Game extends React.Component {
   }
 
   handleSubmit(event) {
-
     event.preventDefault();
-  
+    // Afficher dans le result: Distance / Temps de trajet / Vitesse / Véhicule
     const result = this.state.depart - this.state.arrival;
 
     if (result < 0) {
       console.log(-result);
       return -result;
     } else {
-      console.log("yo"+ result);
+      console.log("yo" + result);
       return result;
     }
   }
 
   handleSubmitNewVehicle(event) {
-    vehicleList[3] = {
-      "vehicle": this.state.customVehicle,
-      "speed": this.state.customSpeed,}
+    vehicleList[vehicleList.length + 1] = {
+      vehicle: this.state.customVehicle,
+      speed: this.state.customSpeed
+    };
     console.log(vehicleList);
-    this.setState({vehicle_options: vehicleList.map(option => option.vehicle)})
+    this.setState({
+      vehicle_options: vehicleList.map(option => option.vehicle)
+    });
   }
 
   render() {
@@ -122,7 +123,7 @@ class Game extends React.Component {
           handleVehicleChange={this.handleVehicleChange}
           handleSubmit={this.handleSubmit}
         />
-        <input type="submit" value="Submit" onClick={this.handleSubmit} />
+        <input type="submit" value="Calculer" onClick={this.handleSubmit} />
 
         <UtilisatorVehicleForm
           handleCustomVehicleChange={this.handleCustomVehicleChange}
@@ -130,7 +131,7 @@ class Game extends React.Component {
         />
         <input
           type="submit"
-          value="Submit"
+          value="Ajouter"
           onClick={this.handleSubmitNewVehicle}
         />
       </div>
