@@ -31,7 +31,7 @@ class Home extends React.Component {
     return (
       <section className={this.state.homeIsOpen ? "Homepage" : "Disabled-Homepage"}>
           <img src="https://i.imgur.com/yT7b2Td.png" alt="logo astra" className='astraLogo'/>
-          <img src={this.state.image.hdurl} alt="Daily NASA's image" className='backgroundHome'/>
+          <img src={this.state.image.hdurl} alt={this.state.image.explanation} className='backgroundHome'/>
           <button className="enter-button" onClick = {this.handleClick}>Enter</button>
       </section>
       
