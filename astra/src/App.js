@@ -11,10 +11,10 @@ function App() {
     <div className = "App">
       <div>
         <Home />
+        <SunData />
         <PlanetData />
         <DwarfPlanetData />
         <SatelliteData />
-        <SunData />
       </div>
     </div>
   );
