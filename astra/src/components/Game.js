@@ -110,16 +110,9 @@ class Game extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    const distaneceResult =
-      this.state.departPosition - this.state.arrivalPosition;
-    if (distaneceResult < 0) {
-      this.setState({ distance: -distaneceResult });
-    } else {
-      this.setState({ distance: distaneceResult });
-    }
-
-    const timeResult = Math.floor(this.state.distance / this.state.speed);
-    this.setState({ time: timeResult });
+    const timeResult = Math.floor((this.state.departPosition - this.state.arrivalPosition) / this.state.speed);
+    this.setState({ time: timeResult,
+                    distance: Math.abs(this.state.departPosition - this.state.arrivalPosition) });
   }
 
   handleSubmitNewVehicle(event) {
@@ -127,7 +120,6 @@ class Game extends React.Component {
       vehicle: this.state.customVehicle,
       speed: this.state.customSpeed
     };
-    console.log(vehicleList);
     this.setState({
       vehicle_options: vehicleList.map(option => option.vehicle)
     });
