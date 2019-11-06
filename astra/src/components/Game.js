@@ -84,6 +84,10 @@ class Game extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    const getPlanetsProperties = [...planetList].map(propertie => {
+      console.log(propertie)
+    })
+
     // Afficher dans le result: Distance / Temps de trajet / Vitesse / Véhicule
     const result = this.state.depart - this.state.arrival;
 
