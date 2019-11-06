@@ -3,10 +3,6 @@ import React from 'react'
 class GameFormPlanet extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      depart: 'earth',
-      arrival: 'saturn',
-    };
 
     this.handleDepartChange = this.handleDepartChange.bind(this);
     this.handleArrivalChange = this.handleArrivalChange.bind(this);
@@ -31,7 +27,7 @@ class GameFormPlanet extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           Choose your planet:
-          <select value={this.state.depart} onChange={this.handleDepartChange}>
+          <select value={this.props.depart} onChange={this.handleDepartChange}>
             <option value="sun">Sun</option>
             <option value="earth">Earth</option>
             <option value="mercury">Mercury</option>
@@ -41,7 +37,7 @@ class GameFormPlanet extends React.Component {
         <input type="submit" value="Submit" />
         <label>
           Choose your planet:
-          <select value={this.state.arrival} onChange={this.handleArrivalChange}>
+          <select value={this.props.arrival} onChange={this.handleArrivalChange}>
             <option value="sun">Sun</option>
             <option value="earth">Earth</option>
             <option value="mercury">Mercury</option>

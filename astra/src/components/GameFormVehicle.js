@@ -1,12 +1,9 @@
 import React from 'react'
+import UtilisatorVehicleForm from './UtilisatorVehicleForm';
 
 class GameFormVehicle extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      vehicle: 'train',
-    };
-
     this.handleVehicleChange = this.handleVehicleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -16,7 +13,7 @@ class GameFormVehicle extends React.Component {
   }
 
   handleSubmit(event) {
-    alert(`Your vehicle is: ${this.state.vehicle}`);
+    alert(`Your vehicle is: ${this.props.vehicle}`);
     event.preventDefault();
   }
 
@@ -25,7 +22,7 @@ class GameFormVehicle extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           Choose your vehicle:
-          <select value={this.state.vehicle} onChange={this.handleVehicleChange}>
+          <select value={this.props.vehicle} onChange={this.handleVehicleChange}>
             <option value="train">Train</option>
             <option value="rocket">Rocket</option>
             <option value="moped">Moped</option>

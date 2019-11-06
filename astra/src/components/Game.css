@@ -1,0 +1,9 @@
+.Game{
+  display: flex;
+  align-content: space-around;
+}
+
+.Vehicle{
+  display: flex;
+  align-items: center;
+}
