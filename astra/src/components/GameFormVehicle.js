@@ -1,8 +1,10 @@
 import React from 'react'
+import './GameFormVehicle.css'
 
 class GameFormVehicle extends React.Component {
   render() {
     return (
+      <div className='Vehicle'>
       <form onSubmit={this.props.handleSubmit}>
         <label>
           Choose your vehicle:
@@ -14,6 +16,7 @@ class GameFormVehicle extends React.Component {
           </select>
         </label>
       </form>
+      </div>
     );
   }
 }

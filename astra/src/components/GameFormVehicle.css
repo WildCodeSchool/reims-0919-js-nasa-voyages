@@ -1,0 +1,11 @@
+.Vehicle{
+  color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  text-shadow: 1px 1px 3px black;
+}
+
+.Vehicle, select{
+  display: flex;
+  align-content: space-around;
+}

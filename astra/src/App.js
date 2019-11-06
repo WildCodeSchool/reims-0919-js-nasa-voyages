@@ -9,8 +9,9 @@ function App() {
     <div className = "App">
       <Home />
       <Navbar />
-      <div className = "application">
-      <Game />
+      <div className = "Application">
+        
+        <Game />
       </div>
     </div>
   );

@@ -2,6 +2,9 @@ import React from "react";
 import GameFormPlanet from "./GameFormPlanet";
 import GameFormVehicle from "./GameFormVehicle";
 import UtilisatorVehicleForm from "./UtilisatorVehicleForm";
+import './Game.css'
+
+
 
 const planetList = [
   {
@@ -127,13 +130,13 @@ class Game extends React.Component {
           handleVehicleChange={this.handleVehicleChange}
           handleSubmit={this.handleSubmit}
         />
-        <input type="submit" value="Calculer" onClick={this.handleSubmit} />
-
+        <input className='Calcul'type="submit" value="Calculer" onClick={this.handleSubmit} />
+        <p className='OrCreate'>Or create your vehicle</p>
         <UtilisatorVehicleForm
           handleCustomVehicleChange={this.handleCustomVehicleChange}
           handleCustomSpeedChange={this.handleCustomSpeedChange}
         />
-        <input
+        <input className='Add'
           type="submit"
           value="Ajouter"
           onClick={this.handleSubmitNewVehicle}

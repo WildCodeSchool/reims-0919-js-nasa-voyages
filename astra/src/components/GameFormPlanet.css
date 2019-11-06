@@ -1,4 +1,23 @@
-.Game{
+.Planet{
+  color: antiquewhite;
   display: flex;
-  align-content: space-around;
+  justify-content: center;
+  text-shadow: 1px 1px 2px black;
+  font-size: 1em;
+}
+
+.Planet, label{
+  display: flex;
+  align-items: space-around;
+  justify-content: center;
+}
+
+.Menu{
+  display: flex;
+  vertical-align: middle;  
+  box-sizing: border-box;
+}
+
+.BoxMenu{
+  display: inline-block;
 }
