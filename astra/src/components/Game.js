@@ -52,8 +52,13 @@ class Game extends React.Component {
       planet_options: planetList.map(option => option.englishName),
       vehicle_options: vehicleList.map(option => option.vehicle),
       depart: "",
+      departPosition: "",
       arrival: "",
+      arrivalPosition: "",
+      distance: "",
       vehicle: "",
+      speed: "",
+      time: "",
       customSpeed: "",
       customVehicle: "",
     };
@@ -84,20 +89,31 @@ class Game extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const getPlanetsProperties = [...planetList].map(propertie => {
-      console.log(propertie)
+    const getPlanetProperties = planetList.forEach(planet => {
+      if (this.state.depart === this.state.arrival && planet.englishName === this.state.depart) {
+        this.setState({ departPosition : planet.distance,
+                        arrivalPosition: planet.distance}) 
+      } else if (planet.englishName === this.state.depart) {
+        this.setState({ departPosition: planet.distance})
+      } else if (planet.englishName === this.state.arrival) {
+        this.setState({ arrivalPosition: planet.distance})
+      }
+    })
+    const getVehicleProperties = vehicleList.forEach(vehicle => {
+      if (vehicle.vehicle === this.state.vehicle){
+        this.setState({ speed: vehicle.speed})
+      }
     })
 
-    // Afficher dans le result: Distance / Temps de trajet / Vitesse / Véhicule
-    const result = this.state.depart - this.state.arrival;
-
-    if (result < 0) {
-      console.log(-result);
-      return -result;
+    const distaneceResult = this.state.departPosition - this.state.arrivalPosition;
+      if (distaneceResult < 0) {
+      this.setState({ distance: -distaneceResult})
     } else {
-      console.log("yo" + result);
-      return result;
+      this.setState({ distance: distaneceResult})
     }
+
+    const timeResult = Math.floor(this.state.distance / this.state.speed)
+    this.setState({ time: timeResult})
   }
 
   handleSubmitNewVehicle(event) {
@@ -138,6 +154,8 @@ class Game extends React.Component {
           value="Ajouter"
           onClick={this.handleSubmitNewVehicle}
         />
+        <p>La distance entre {this.state.depart} et {this.state.arrival} est de {this.state.distance} km</p>
+        <p>En {this.state.vehicle}, il faut {this.state.time} heures pour faire le trajet, soit {Math.floor((this.state.time) / 24)} jours</p>
       </div>
     );
   }
