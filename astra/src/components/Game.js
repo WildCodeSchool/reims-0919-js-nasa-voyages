@@ -60,7 +60,7 @@ class Game extends React.Component {
       speed: "",
       time: "",
       customSpeed: "",
-      customVehicle: "",
+      customVehicle: ""
     };
     this.handleDepartChange = this.handleDepartChange.bind(this);
     this.handleArrivalChange = this.handleArrivalChange.bind(this);
@@ -70,14 +70,34 @@ class Game extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmitNewVehicle = this.handleSubmitNewVehicle.bind(this);
   }
+
   handleDepartChange(event) {
-    this.setState({ depart: event.target.value });
+    planetList.forEach(planet => {
+      if (planet.englishName === event.target.value) {
+        this.setState({
+          departPosition: planet.distance,
+          depart: event.target.value
+        });
+      }
+    });
   }
   handleArrivalChange(event) {
-    this.setState({ arrival: event.target.value });
+    planetList.forEach(planet => {
+      if (planet.englishName === event.target.value) {
+        this.setState({
+          arrivalPosition: planet.distance,
+          arrival: event.target.value
+        });
+      }
+    });
   }
+
   handleVehicleChange(event) {
-    this.setState({ vehicle: event.target.value });
+    vehicleList.forEach(vehicle => {
+      if (vehicle.vehicle === event.target.value) {
+        this.setState({ speed: vehicle.speed, vehicle: event.target.value });
+      }
+    });
   }
   handleCustomVehicleChange(event) {
     this.setState({ customVehicle: event.target.value });
@@ -89,31 +109,17 @@ class Game extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const getPlanetProperties = planetList.forEach(planet => {
-      if (this.state.depart === this.state.arrival && planet.englishName === this.state.depart) {
-        this.setState({ departPosition : planet.distance,
-                        arrivalPosition: planet.distance}) 
-      } else if (planet.englishName === this.state.depart) {
-        this.setState({ departPosition: planet.distance})
-      } else if (planet.englishName === this.state.arrival) {
-        this.setState({ arrivalPosition: planet.distance})
-      }
-    })
-    const getVehicleProperties = vehicleList.forEach(vehicle => {
-      if (vehicle.vehicle === this.state.vehicle){
-        this.setState({ speed: vehicle.speed})
-      }
-    })
 
-    const distaneceResult = this.state.departPosition - this.state.arrivalPosition;
-      if (distaneceResult < 0) {
-      this.setState({ distance: -distaneceResult})
+    const distaneceResult =
+      this.state.departPosition - this.state.arrivalPosition;
+    if (distaneceResult < 0) {
+      this.setState({ distance: -distaneceResult });
     } else {
-      this.setState({ distance: distaneceResult})
+      this.setState({ distance: distaneceResult });
     }
 
-    const timeResult = Math.floor(this.state.distance / this.state.speed)
-    this.setState({ time: timeResult})
+    const timeResult = Math.floor(this.state.distance / this.state.speed);
+    this.setState({ time: timeResult });
   }
 
   handleSubmitNewVehicle(event) {
@@ -154,8 +160,14 @@ class Game extends React.Component {
           value="Ajouter"
           onClick={this.handleSubmitNewVehicle}
         />
-        <p>La distance entre {this.state.depart} et {this.state.arrival} est de {this.state.distance} km</p>
-        <p>En {this.state.vehicle}, il faut {this.state.time} heures pour faire le trajet, soit {Math.floor((this.state.time) / 24)} jours</p>
+        <p>
+          La distance entre {this.state.depart} et {this.state.arrival} est de{" "}
+          {this.state.distance} km
+        </p>
+        <p>
+          En {this.state.vehicle}, il faut {this.state.time} heures pour faire
+          le trajet, soit {Math.floor(this.state.time / 24)} jours
+        </p>
       </div>
     );
   }
