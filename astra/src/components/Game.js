@@ -206,14 +206,14 @@ class Game extends React.Component {
 
         <p className = {this.state.resultStatus ? "Result" : "Hidden"}>
           The distance between {this.state.depart} and {this.state.arrival} is{" "}
-          {this.state.distance} km
+          {this.state.distance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} km
         <br/>        
-          With a {this.state.vehicle}, it takes {this.state.time} hours to make
+          With a {this.state.vehicle}, it takes {this.state.time.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} hours to make
           the trip, or:
           <br/>
            <ul>
-             <li>{Math.floor(this.state.time / 24)} days.</li>
-             <li>{Math.floor(this.state.time / 24 / 365)} years</li>
+             <li>{Math.floor(this.state.time / 24).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} days.</li>
+             <li>{Math.floor(this.state.time / 24 / 365).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} years</li>
            </ul>
         </p>
       </div>
