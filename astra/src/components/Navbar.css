@@ -1,0 +1,24 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 75px;
+  background-color: rgb(6, 46, 109);
+}
+
+.burgerLogo {
+  width: 75px;
+  height: 75px;
+}
+
+.logoAstra {
+  width: 75px;
+  height: 75px;
+}
+
+.nasaLogo {
+  width: 75px;
+  height: 75px;
+}
+
+
