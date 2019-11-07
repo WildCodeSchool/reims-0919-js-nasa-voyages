@@ -1,0 +1,21 @@
+
+
+.lexicon {
+  margin: 0 25em;
+}
+
+.lexicon img {
+  width: 150px;
+  height: 150px;
+  margin-left: 3em;
+}
+
+.lexicon h3 {
+  padding-bottom: 2em;
+}
+
+.lexiconContent {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 1em;
+}
