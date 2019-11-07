@@ -1,11 +1,17 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import './App.css'
 import Home from './components/Home'
+import Game from './components/Game'
+import Navbar from './components/Navbar'
 
 function App() {
   return (
-    <div>
-      <Home/>
+    <div className = "App">
+      <Home />
+      <Navbar />
+      <div className = "application">
+      <Game />
+      </div>
     </div>
   );
 }
