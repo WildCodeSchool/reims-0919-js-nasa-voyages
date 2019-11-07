@@ -1,5 +1,6 @@
 import React from "react";
 import Lexicon from "./Lexicon";
+import Lexique from "./Lexique";
 
 const Planets = [
   {
@@ -60,6 +61,7 @@ const Planets = [
 
 const PlanetData = () => (
   <div>
+    <Lexique/>
     {Planets.map(item => (
       <Lexicon name={item.name} description={item.description} image={item.image} />
     ))}

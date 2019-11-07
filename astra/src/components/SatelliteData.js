@@ -1,5 +1,6 @@
 import React from "react";
 import Lexicon from "./Lexicon";
+import Lexique from "./Lexique";
 
 const Satellite = [
   {
@@ -54,6 +55,7 @@ const Satellite = [
 
 const SatelliteData = () => (
   <div>
+    <Lexique/>
     {Satellite.map(item => (
       <Lexicon name={item.name} description={item.description} image={item.image}/>
     ))}

@@ -1,5 +1,6 @@
 import React from "react";
 import Lexicon from "./Lexicon";
+import Lexique from "./Lexique";
 
 const Sun = [
   {
@@ -12,6 +13,7 @@ const Sun = [
 
 const SunData = () => (
   <div>
+    <Lexique />
     {Sun.map(item => (
       <Lexicon name={item.name} description={item.description} image={item.image} />
     ))}
