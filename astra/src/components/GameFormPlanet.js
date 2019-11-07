@@ -2,6 +2,9 @@ import React from 'react'
 import './GameFormPlanet.css'
 
 class GameFormPlanet extends React.Component {
+  constructor (props){
+    super(props)
+  }
   render() {
     return (
       <div className='Planet'>
@@ -9,8 +12,8 @@ class GameFormPlanet extends React.Component {
           <div className='BoxMenu'>
             <label className='Menu'>
               <p className='Depart'>Your depart :</p>  
-                <select defaultValue={this.props.planet_options[0]} onChange={this.props.handleDepartChange}>
-                  {this.props.planet_options.map(option => {
+                <select defaultValue={this.props.planetOptions[0]} onChange={this.props.handleDepartChange}>
+                  {this.props.planetOptions.map(option => {
                     return (
                     <option key={`depart_${option}`} value={option}>{option}</option>
                   )})}
@@ -21,8 +24,8 @@ class GameFormPlanet extends React.Component {
             <label className='SMenuLabel'>
               <p className='Arrival'>Your arrival : </p>
               <div className='SMenu'>
-                <select  defaultValue={this.props.planet_options[0]} onChange={this.props.handleArrivalChange}>
-                  {this.props.planet_options.map(option => {
+                <select  defaultValue={this.props.planetOptions[0]} onChange={this.props.handleArrivalChange}>
+                  {this.props.planetOptions.map(option => {
                     return (
                     <option key ={`arrival_${option}`} value={option}>{option}</option>
                   )})}

@@ -13,7 +13,6 @@
 }
 
 .logoAstra {
-  width: 75px;
-  height: 75px;
+  width: auto;
+  height: 100%;
 }
-

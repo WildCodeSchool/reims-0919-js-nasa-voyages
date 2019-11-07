@@ -8,8 +8,8 @@ class GameFormVehicle extends React.Component {
       <form onSubmit={this.props.handleSubmit}>
         <label className='LabelVehicle'>
           Choose your vehicle:
-          <select defaultValue={this.props.vehicle_options[0]} onChange={this.props.handleVehicleChange}>
-            {this.props.vehicle_options.map(option => {
+          <select defaultValue={this.props.vehicleOptions[0]} onChange={this.props.handleVehicleChange}>
+            {this.props.vehicleOptions.map(option => {
               return (
               <option key={`vehicule_${option}`} value={option}>{option}</option>
             )})}
