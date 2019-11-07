@@ -4,7 +4,11 @@ import "./Home.css"
 class Home extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {homeIsOpen: true} // Par défaut la page d'accueil est visible
+    this.state = {
+      homeIsOpen: true,
+      image: [],
+      isLoaded: false
+    } // Par défaut la page d'accueil est visible
     this.handleClick = this.handleClick.bind(this)
   }
   handleClick () {
@@ -13,11 +17,22 @@ class Home extends React.Component {
     }))
   }
 
+  componentDidMount () {
+    fetch('https://api.nasa.gov/planetary/apod?api_key=KQTkxavQRPB7r5x8jjMimvQ5EaxFCrBM1aG9krC4')
+      .then(res => res.json())
+      .then(json =>
+        this.setState({
+          isLoaded : true,
+          image : json,
+        }))
+  }
+
   render () {
     return (
       <section className={this.state.homeIsOpen ? "Homepage" : "Disabled-Homepage"}>
-        <img src="https://i.imgur.com/yT7b2Td.png" alt="logo astra"/>
-        <button className="enter-button" onClick = {this.handleClick}>Enter</button>
+          <img src="https://i.imgur.com/yT7b2Td.png" alt="logo astra" className='astraLogo'/>
+          <img src={this.state.image.hdurl} alt={this.state.image.explanation} className='backgroundHome'/>
+          <button className="enter-button" onClick = {this.handleClick}>Enter</button>
       </section>
       
     )
