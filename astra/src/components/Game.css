@@ -1,5 +1,6 @@
 .Game, .Add{
   text-align: center;
+
 }
 
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
@@ -13,6 +14,14 @@ input :hover {
   display: flex;
   justify-content: center;
   text-shadow: 1px 1px 2px black;
-  font-size: 1.9em;
+  font-size: 1.7em;
 }
 
+.Result{
+  color: antiquewhite;
+  text-shadow: 1px 1px 2px black;
+}
+
+.DivCalcul{
+  padding: 2%;
+}

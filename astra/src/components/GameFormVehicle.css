@@ -1,11 +1,16 @@
 .Vehicle{
   color: antiquewhite;
-  display: flex;
+  display: inline-block;
   justify-content: center;
   text-shadow: 1px 1px 3px black;
+
 }
 
 .Vehicle, select{
   display: flex;
   align-content: space-around;
 }
+
+/* .LabelVehicle{
+  padding: 1%;
+} */

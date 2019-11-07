@@ -55,10 +55,15 @@ class Game extends React.Component {
       planet_options: planetList.map(option => option.englishName),
       vehicle_options: vehicleList.map(option => option.vehicle),
       depart: "",
+      departPosition: "",
       arrival: "",
+      arrivalPosition: "",
+      distance: "",
       vehicle: "",
+      speed: "",
+      time: "",
       customSpeed: "",
-      customVehicle: "",
+      customVehicle: ""
     };
     this.handleDepartChange = this.handleDepartChange.bind(this);
     this.handleArrivalChange = this.handleArrivalChange.bind(this);
@@ -68,14 +73,34 @@ class Game extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmitNewVehicle = this.handleSubmitNewVehicle.bind(this);
   }
+
   handleDepartChange(event) {
-    this.setState({ depart: event.target.value });
+    planetList.forEach(planet => {
+      if (planet.englishName === event.target.value) {
+        this.setState({
+          departPosition: planet.distance,
+          depart: event.target.value
+        });
+      }
+    });
   }
   handleArrivalChange(event) {
-    this.setState({ arrival: event.target.value });
+    planetList.forEach(planet => {
+      if (planet.englishName === event.target.value) {
+        this.setState({
+          arrivalPosition: planet.distance,
+          arrival: event.target.value
+        });
+      }
+    });
   }
+
   handleVehicleChange(event) {
-    this.setState({ vehicle: event.target.value });
+    vehicleList.forEach(vehicle => {
+      if (vehicle.vehicle === event.target.value) {
+        this.setState({ speed: vehicle.speed, vehicle: event.target.value });
+      }
+    });
   }
   handleCustomVehicleChange(event) {
     this.setState({ customVehicle: event.target.value });
@@ -87,20 +112,10 @@ class Game extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const getPlanetsProperties = [...planetList].map(propertie => {
-      console.log(propertie)
-    })
 
-    // Afficher dans le result: Distance / Temps de trajet / Vitesse / Véhicule
-    const result = this.state.depart - this.state.arrival;
-
-    if (result < 0) {
-      console.log(-result);
-      return -result;
-    } else {
-      console.log("yo" + result);
-      return result;
-    }
+    const timeResult = Math.floor((this.state.departPosition - this.state.arrivalPosition) / this.state.speed);
+    this.setState({ time: timeResult,
+                    distance: Math.abs(this.state.departPosition - this.state.arrivalPosition) });
   }
 
   handleSubmitNewVehicle(event) {
@@ -108,7 +123,6 @@ class Game extends React.Component {
       vehicle: this.state.customVehicle,
       speed: this.state.customSpeed
     };
-    console.log(vehicleList);
     this.setState({
       vehicle_options: vehicleList.map(option => option.vehicle)
     });
@@ -130,8 +144,12 @@ class Game extends React.Component {
           handleVehicleChange={this.handleVehicleChange}
           handleSubmit={this.handleSubmit}
         />
-        <input className='Calcul'type="submit" value="Calculer" onClick={this.handleSubmit} />
-        <p className='OrCreate'>Or create your vehicle</p>
+        <div className='DivCalcul'>
+          <input className='Calcul'type="submit" value="Calculer" onClick={this.handleSubmit} />
+        </div>
+        <div className='Create'>
+          <p className='OrCreate'>Or create your vehicle</p>
+        </div>
         <UtilisatorVehicleForm
           handleCustomVehicleChange={this.handleCustomVehicleChange}
           handleCustomSpeedChange={this.handleCustomSpeedChange}
@@ -141,6 +159,13 @@ class Game extends React.Component {
           value="Ajouter"
           onClick={this.handleSubmitNewVehicle}
         />
+        <p className='Result'>
+          The distance between {this.state.depart} and {this.state.arrival} is{" "}
+          {this.state.distance} km
+        </p>
+        <p className='Result'>
+          With a {this.state.vehicle}, it takes {this.state.time} hours to make the trip, or {Math.floor(this.state.time / 24)} days.
+        </p>
       </div>
     );
   }

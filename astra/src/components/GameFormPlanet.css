@@ -12,12 +12,22 @@
   justify-content: center;
 }
 
-.Menu{
+/* .Menu{
   display: flex;
   vertical-align: middle;  
   box-sizing: border-box;
-}
+} */
 
 .BoxMenu{
   display: inline-block;
+}
+
+.Depart{
+  margin: 0%;
+  padding: 1%;
+}
+
+.Arrival{
+  margin: 0%;
+  padding: 1%;
 }

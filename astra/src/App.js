@@ -10,7 +10,6 @@ function App() {
       <Home />
       <Navbar />
       <div className = "Application">
-        
         <Game />
       </div>
     </div>
