@@ -15,6 +15,7 @@ input :hover {
   justify-content: center;
   text-shadow: 1px 1px 2px black;
   font-size: 1.7em;
+  line-height: 0%;
 }
 
 .Result{
