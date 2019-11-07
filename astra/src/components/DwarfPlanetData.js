@@ -1,6 +1,7 @@
 import React from "react";
 import Lexicon from "./Lexicon";
 
+
 const DwarfPlanets = [
   {
     name: "Cérès",

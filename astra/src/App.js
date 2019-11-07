@@ -1,12 +1,9 @@
 import React from 'react'
 import './App.css'
-import PlanetData from './components/PlanetData'
-import DwarfPlanetData from './components/DwarfPlanetData'
-import SatelliteData from './components/SatelliteData'
-import SunData from './components/SunData'
 import Home from './components/Home'
 import Game from './components/Game'
 import Navbar from './components/Navbar'
+import Lexique from './components/Lexique';
 
 function App() {
   return (
@@ -16,11 +13,8 @@ function App() {
       <div className = "Application">
         <Game />
       </div>
-        <SunData />
-        <PlanetData />
-        <DwarfPlanetData />
-        <SatelliteData />
-      </div>
+      <Lexique/>
+    </div>
   );
 }
 
