@@ -66,7 +66,8 @@ class Game extends React.Component {
       speed: "",
       time: "",
       customSpeed: "",
-      customVehicle: ""
+      customVehicle: "",
+      resultStatus: false,
     };
     this.handleDepartChange = this.handleDepartChange.bind(this);
     this.handleArrivalChange = this.handleArrivalChange.bind(this);
@@ -147,7 +148,8 @@ class Game extends React.Component {
     );
     this.setState({
       time: timeResult,
-      distance: Math.abs(this.state.departPosition - this.state.arrivalPosition)
+      distance: Math.abs(this.state.departPosition - this.state.arrivalPosition),
+      resultStatus: true,
     });
   }
 
@@ -157,7 +159,7 @@ class Game extends React.Component {
       speed: this.state.customSpeed
     };
     this.setState({
-      vehicleOptions: vehicleList.map(option => option.vehicle)
+      vehicleOptions: vehicleList.map(option => option.vehicle),      
     });
   }
 
@@ -197,11 +199,15 @@ class Game extends React.Component {
           value="Ajouter"
           onClick={this.handleSubmitNewVehicle}
         />
-        <p className="Result">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+
+        <p className = {this.state.resultStatus ? "Result" : "Hidden"}>
           The distance between {this.state.depart} and {this.state.arrival} is{" "}
           {this.state.distance} km
-        </p>
-        <p className="Result">
+        <br/>        
           With a {this.state.vehicle}, it takes {this.state.time} hours to make
           the trip, or {Math.floor(this.state.time / 24)} days.
         </p>
