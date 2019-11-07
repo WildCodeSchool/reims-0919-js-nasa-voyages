@@ -6,7 +6,7 @@ const DwarfPlanets = [
     name: "Cérès",
     description:
       "Située dans la ceinture d'astéroïdes, Cérès a d'abord été considérée comme une planète avant d'être reclassé en tant que planète naine et astéroïde. Elle est la plus petite planète naine (974,6 km de diamètre) et le plus gros astéroïde. Un jour sur Cérès dure 9 heures et 4 minutes et une année dure 4.6 ans sur Terre. La température en surface s'élève à -106 °C. Elle possède un noyau rocheux et une coûte de glace. La ceinture d'astéroïdes dans laquelle Cérès se trouve, est entre l'orbite de Mars et celle de Jupiter. Distance avec le Soleil : 413 millions de km.",
-    image: "https://nineplanets.org/wp-content/uploads/2019/09/ceres.png"
+    image: "https://space-facts.com/wp-content/uploads/mercury-transparent.png"
   },
   {
     name: "Pluton",
