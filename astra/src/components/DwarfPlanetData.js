@@ -1,5 +1,7 @@
 import React from "react";
 import Lexicon from "./Lexicon";
+import Lexique from "./Lexique";
+import './Lexique.css';
 
 
 const DwarfPlanets = [
@@ -36,7 +38,8 @@ const DwarfPlanets = [
 ];
 
 const DwarfPlanetData = () => (
-  <div>
+  <div className='Lexique' >
+   <Lexique/>
     {DwarfPlanets.map(item => (
       <Lexicon name={item.name} description={item.description} image={item.image} />
     ))}

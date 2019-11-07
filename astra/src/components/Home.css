@@ -22,15 +22,12 @@
   border-radius: 10px;
   background:rgb(66,79, 135);
   opacity: 0.5;
+  z-index: 2;
 }
 
 .enter-button:hover {
   background-color: black;
   color: grey;
-}
-
-.Disabled-Homepage {
- display: none;
 }
 
 section {

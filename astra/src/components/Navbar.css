@@ -7,7 +7,13 @@
     background-color: rgba(5, 22, 45)
 }
 
-.astraLogo {
-    width: auto;
-    height: 100%;
+.burgerLogo {
+  width: 75px;
+  height: 75px;
 }
+
+.logoAstra {
+  width: 75px;
+  height: 75px;
+}
+

@@ -1,18 +1,17 @@
-import React from 'react';
-import DwarfPlanetData from './DwarfPlanetData.js';
-import PlanetData from './PlanetData.js';
-import SatelliteData from './SatelliteData.js';
-import SunData from './SunData.js';
-import './Lexique.css';
+import React from "react";
+//import './Lexique.css';
+import { Link } from "react-router-dom";
 
 function Lexique() {
   return (
-    <div className = "Lexique">
-        <SunData />
-        <PlanetData />
-        <DwarfPlanetData />
-        <SatelliteData />
-      </div>
+    <div className="Lexique">
+      <ul>
+        <li><Link to='/Lexique'>Soleil</Link></li>
+        <li><Link to='/Lexique/Planets'>Planetes</Link></li>
+        <li><Link to='/Lexique/DwarfPlanets'>Planetes Naines</Link></li>
+        <li><Link to='/Lexique/Satellites'>Satellites</Link></li>
+      </ul>
+    </div>
   );
 }
 
