@@ -3,15 +3,18 @@ import './App.css'
 import Home from './components/Home'
 import Game from './components/Game'
 import Navbar from './components/Navbar'
+import {Switch, Route} from 'react-router-dom'
 
 function App() {
   return (
     <div className = "App">
-      <Home />
-      <Navbar />
-      <div className = "application">
-      <Game />
-      </div>
+      <Switch>
+        <Route exact path= "/" component={() => <Home />} />
+        <div className = "application">
+          <Navbar />
+          <Route exact path= "/Game" component={() => <Game />} />
+        </div>
+      </Switch>
     </div>
   );
 }

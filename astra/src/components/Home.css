@@ -12,10 +12,6 @@
   background: grey;
 }
 
-.Disabled-Homepage {
- display: none;
-}
-
 section {
   display: flex;
   flex-direction: column;
