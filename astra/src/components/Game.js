@@ -209,7 +209,12 @@ class Game extends React.Component {
           {this.state.distance} km
         <br/>        
           With a {this.state.vehicle}, it takes {this.state.time} hours to make
-          the trip, or {Math.floor(this.state.time / 24)} days.
+          the trip, or:
+          <br/>
+           <ul>
+             <li>{Math.floor(this.state.time / 24)} days.</li>
+             <li>{Math.floor(this.state.time / 24 / 365)} years</li>
+           </ul>
         </p>
       </div>
     );
