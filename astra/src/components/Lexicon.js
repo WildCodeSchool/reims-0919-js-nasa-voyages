@@ -7,7 +7,9 @@ const Lexicon = props => (
       <h3 className="name">{props.name}</h3>
       <div className="lexiconContent">
         <p>{props.description}</p>
-        <img src={props.image} alt={props.name} />
+        <figure>
+          <img src={props.image} alt={props.name} />
+        </figure>
       </div>
     </div>
   </div>
