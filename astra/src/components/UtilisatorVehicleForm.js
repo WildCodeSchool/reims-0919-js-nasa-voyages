@@ -6,7 +6,7 @@ class UtilisatorVehicleForm extends Component {
     return (
       <div className='Utilisator'>
       <form onSubmit={this.props.handleSubmit}>
-        <label className='VehicleName' htmlFor='vehicleName'>Name your vehicle : </label>
+        <label className='VehicleName' htmlFor='vehicleName'>Nom du véhicule : </label>
         <input
           id='vehicleName'
           name='vehicleName'
@@ -15,7 +15,7 @@ class UtilisatorVehicleForm extends Component {
           onChange={this.props.handleCustomVehicleChange}
         /> 
         <br/>
-        <label className='VehicleSpeed' htmlFor='vehicleName'>Set your speed average : </label>
+        <label className='VehicleSpeed' htmlFor='vehicleName'>Vitesse moyenne : </label>
         <input
           id='speedAverage'
           name='speedAverage'

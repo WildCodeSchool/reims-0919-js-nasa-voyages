@@ -11,7 +11,7 @@ class GameFormPlanet extends React.Component {
         <form onSubmit={this.props.handleSubmit}>
           <div className='BoxMenu'>
             <label className='Menu'>
-              <p className='Depart'>Your depart :</p>  
+              <p className='Depart'>Départ :</p>  
                 <select onChange={this.props.handleDepartChange}>
                   {this.props.planetOptions.map(option => {
                     return (
@@ -22,7 +22,7 @@ class GameFormPlanet extends React.Component {
           </div>
 
             <label className='SMenuLabel'>
-              <p className='Arrival'>Your arrival : </p>
+              <p className='Arrival'>Arrivée : </p>
               <div className='SMenu'>
                 <select onChange={this.props.handleArrivalChange}>
                   {this.props.planetOptions.map(option => {

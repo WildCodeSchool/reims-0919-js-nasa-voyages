@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import Game from "./components/Game";
 import Navbar from "./components/Navbar";
 import { Switch, Route } from "react-router-dom";
+import Reception from "./components/Reception";
 
 function App() {
   return (
@@ -16,8 +17,9 @@ function App() {
         <Route exact path="/" component={() => <Home />} />
         <div className="application">
           <Navbar />
-          <Route exact path="/Game" component={() => <Game />} />
+          <Route exact path="/Reception" component={() => <Reception />} />
           <Switch>
+          <Route exact path="/Game" component={() => <Game />} />
             <Route exact path="/Lexique" component={() => <SunData />} />
             <Route exact path="/Lexique/Planets" component={() => <PlanetData />} />
             <Route exact path="/Lexique/DwarfPlanets" component={() => <DwarfPlanetData />} />
