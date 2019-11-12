@@ -9,6 +9,7 @@ class GameFormVehicle extends React.Component {
         <label className='LabelVehicle'>
           Choose your vehicle:
           <select onChange={this.props.handleVehicleChange}>
+          <option value = "" disabled selected>Choisissez un véhicule</option>
             {this.props.vehicleOptions.map(option => {
               return (
               <option key={`vehicule_${option}`} value={option}>{option}</option>

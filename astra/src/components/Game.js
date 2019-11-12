@@ -4,33 +4,6 @@ import GameFormVehicle from "./GameFormVehicle";
 import UtilisatorVehicleForm from "./UtilisatorVehicleForm";
 import "./Game.css";
 
-const planetList = [
-  {
-    id: "terre",
-    name: "La Terre",
-    englishName: "Earth",
-    distance: 149598262
-  },
-  {
-    id: "soleil",
-    name: "Le Soleil",
-    englishName: "Sun",
-    distance: 0
-  },
-  {
-    id: "saturne",
-    name: "Saturne",
-    englishName: "Saturn",
-    distance: 1426666422
-  },
-  {
-    id: "mercure",
-    name: "Mercure",
-    englishName: "Mercury",
-    distance: 57909227
-  }
-];
-
 const vehicleList = [
   {
     vehicle: "Car",
@@ -54,8 +27,8 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      planetListBis: [],
-      planetOptions: planetList.map(option => option.englishName),
+      planetList: [],
+      planetOptions: [],
       vehicleOptions: vehicleList.map(option => option.vehicle),
       depart: "",
       departPosition: "",
@@ -76,12 +49,13 @@ class Game extends React.Component {
     this.handleCustomSpeedChange = this.handleCustomSpeedChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmitNewVehicle = this.handleSubmitNewVehicle.bind(this);
+    this.setAllPlanets = this.setAllPlanets.bind(this)
   }
   componentDidMount() {
     fetch("https://api.le-systeme-solaire.net/rest/bodies")
       .then(response => response.json())
       .then(data =>
-        data.bodies.map(options => {
+        data.bodies.filter(options => {
           if (
             options.isPlanet === true ||
             options.englishName === "Moon" ||
@@ -90,34 +64,37 @@ class Game extends React.Component {
             options.englishName === "Io"
           ) {
             this.setState({
-              planetListBis: options
+              planetList: [...this.state.planetList, options]
             });
           }
         })
       )
-      .then(
-        console.log(this.state.planetListBis)
-        // this.setState({
-        //   planetOptions: this.state.planetListBis.map(option => option.englishName)
-        // })
-      );
+      .then(this.setAllPlanets)
   }
 
+ setAllPlanets() {
+    this.setState({
+      planetOptions: this.state.planetList.map(option => option.englishName)
+    })
+  }
+
+
   handleDepartChange(event) {
-    planetList.forEach(planet => {
+    this.state.planetList.forEach(planet => {
+      console.log(planet)
       if (planet.englishName === event.target.value) {
         this.setState({
-          departPosition: planet.distance,
+          departPosition: planet.semimajorAxis,
           depart: event.target.value
         });
       }
     });
   }
   handleArrivalChange(event) {
-    planetList.forEach(planet => {
+    this.state.planetList.forEach(planet => {
       if (planet.englishName === event.target.value) {
         this.setState({
-          arrivalPosition: planet.distance,
+          arrivalPosition: planet.semimajorAxis,
           arrival: event.target.value
         });
       }

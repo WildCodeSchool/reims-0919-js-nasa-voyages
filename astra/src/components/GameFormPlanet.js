@@ -1,19 +1,16 @@
 import React from 'react'
 import './GameFormPlanet.css'
 
-class GameFormPlanet extends React.Component {
-  constructor (props){
-    super(props)
-  }
-  render() {
+const GameFormPlanet = (props) => {
     return (
       <div className='Planet'>
-        <form onSubmit={this.props.handleSubmit}>
+        <form onSubmit={props.handleSubmit}>
           <div className='BoxMenu'>
             <label className='Menu'>
               <p className='Depart'>Your depart :</p>  
-                <select onChange={this.props.handleDepartChange}>
-                  {this.props.planetOptions.map(option => {
+                <select onChange={props.handleDepartChange}>
+                  <option value = "" disabled selected>Choisissez une planète</option>
+                  {props.planetOptions.map(option => {
                     return (
                     <option key={`depart_${option}`} value={option}>{option}</option>
                   )})}
@@ -24,8 +21,9 @@ class GameFormPlanet extends React.Component {
             <label className='SMenuLabel'>
               <p className='Arrival'>Your arrival : </p>
               <div className='SMenu'>
-                <select onChange={this.props.handleArrivalChange}>
-                  {this.props.planetOptions.map(option => {
+                <select onChange={props.handleArrivalChange}>
+                <option value = "" disabled selected>Choisissez une planète</option>
+                  {props.planetOptions.map(option => {
                     return (
                     <option key ={`arrival_${option}`} value={option}>{option}</option>
                   )})}
@@ -35,6 +33,6 @@ class GameFormPlanet extends React.Component {
         </form>
       </div>
     );
-  }
 }
+
 export default GameFormPlanet
