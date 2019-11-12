@@ -19,21 +19,9 @@ function App() {
           <Route exact path="/Game" component={() => <Game />} />
           <Switch>
             <Route exact path="/Lexique" component={() => <SunData />} />
-            <Route
-              exact
-              path="/Lexique/Planets"
-              component={() => <PlanetData />}
-            />
-            <Route
-              exact
-              path="/Lexique/DwarfPlanets"
-              component={() => <DwarfPlanetData />}
-            />
-            <Route
-              exact
-              path="/Lexique/Satellites"
-              component={() => <SatelliteData />}
-            />
+            <Route exact path="/Lexique/Planets" component={() => <PlanetData />} />
+            <Route exact path="/Lexique/DwarfPlanets" component={() => <DwarfPlanetData />} />
+            <Route exact path="/Lexique/Satellites" component={() => <SatelliteData />} />
           </Switch>
         </div>
       </Switch>
