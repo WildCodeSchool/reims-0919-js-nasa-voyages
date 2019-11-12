@@ -2,9 +2,7 @@ import React from "react";
 import GameFormPlanet from "./GameFormPlanet";
 import GameFormVehicle from "./GameFormVehicle";
 import UtilisatorVehicleForm from "./UtilisatorVehicleForm";
-import './Game.css'
-
-
+import "./Game.css";
 
 const planetList = [
   {
@@ -35,16 +33,20 @@ const planetList = [
 
 const vehicleList = [
   {
-    vehicle: "Moto",
+    vehicle: "Car",
     speed: "120"
   },
   {
-    vehicle: "Fusée",
-    speed: "12000"
+    vehicle: "Rocket",
+    speed: "39895"
   },
   {
-    vehicle: "Vélo",
-    speed: "10"
+    vehicle: "Bicyle",
+    speed: "20"
+  },
+  {
+    vehicle: "Camel",
+    speed: "65"
   }
 ];
 
@@ -52,8 +54,9 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      planet_options: planetList.map(option => option.englishName),
-      vehicle_options: vehicleList.map(option => option.vehicle),
+      planetListBis: [],
+      planetOptions: planetList.map(option => option.englishName),
+      vehicleOptions: vehicleList.map(option => option.vehicle),
       depart: "",
       departPosition: "",
       arrival: "",
@@ -63,7 +66,8 @@ class Game extends React.Component {
       speed: "",
       time: "",
       customSpeed: "",
-      customVehicle: ""
+      customVehicle: "",
+      resultStatus: false,
     };
     this.handleDepartChange = this.handleDepartChange.bind(this);
     this.handleArrivalChange = this.handleArrivalChange.bind(this);
@@ -72,6 +76,31 @@ class Game extends React.Component {
     this.handleCustomSpeedChange = this.handleCustomSpeedChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmitNewVehicle = this.handleSubmitNewVehicle.bind(this);
+  }
+  componentDidMount() {
+    fetch("https://api.le-systeme-solaire.net/rest/bodies")
+      .then(response => response.json())
+      .then(data =>
+        data.bodies.map(options => {
+          if (
+            options.isPlanet === true ||
+            options.englishName === "Moon" ||
+            options.englishName === "Sun" ||
+            options.englishName === "Deimos" ||
+            options.englishName === "Io"
+          ) {
+            this.setState({
+              planetListBis: options
+            });
+          }
+        })
+      )
+      .then(
+        console.log(this.state.planetListBis)
+        // this.setState({
+        //   planetOptions: this.state.planetListBis.map(option => option.englishName)
+        // })
+      );
   }
 
   handleDepartChange(event) {
@@ -113,9 +142,15 @@ class Game extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    const timeResult = Math.floor((this.state.departPosition - this.state.arrivalPosition) / this.state.speed);
-    this.setState({ time: timeResult,
-                    distance: Math.abs(this.state.departPosition - this.state.arrivalPosition) });
+    const timeResult = Math.floor(
+      Math.abs(this.state.departPosition - this.state.arrivalPosition) /
+        this.state.speed
+    );
+    this.setState({
+      time: timeResult,
+      distance: Math.abs(this.state.departPosition - this.state.arrivalPosition),
+      resultStatus: true,
+    });
   }
 
   handleSubmitNewVehicle(event) {
@@ -124,7 +159,7 @@ class Game extends React.Component {
       speed: this.state.customSpeed
     };
     this.setState({
-      vehicle_options: vehicleList.map(option => option.vehicle)
+      vehicleOptions: vehicleList.map(option => option.vehicle),      
     });
   }
 
@@ -134,37 +169,52 @@ class Game extends React.Component {
         <GameFormPlanet
           depart={this.state.depart}
           arrival={this.state.arrival}
-          planet_options={this.state.planet_options}
+          planetOptions={this.state.planetOptions}
           handleDepartChange={this.handleDepartChange}
           handleArrivalChange={this.handleArrivalChange}
           handleSubmit={this.handleSubmit}
         />
         <GameFormVehicle
-          vehicle_options={this.state.vehicle_options}
+          vehicleOptions={this.state.vehicleOptions}
           handleVehicleChange={this.handleVehicleChange}
           handleSubmit={this.handleSubmit}
         />
-        <div className='DivCalcul'>
-          <input className='Calcul'type="submit" value="Calculer" onClick={this.handleSubmit} />
+        <div className="DivCalcul">
+          <input
+            className="Calcul"
+            type="submit"
+            value="Calculer"
+            onClick={this.handleSubmit}
+          />
         </div>
-        <div className='Create'>
-          <p className='OrCreate'>Or create your vehicle</p>
+        <div className="Create">
+          <p className="OrCreate">Or create your vehicle</p>
         </div>
         <UtilisatorVehicleForm
           handleCustomVehicleChange={this.handleCustomVehicleChange}
           handleCustomSpeedChange={this.handleCustomSpeedChange}
         />
-        <input className='Add'
+        <input
           type="submit"
           value="Ajouter"
           onClick={this.handleSubmitNewVehicle}
         />
-        <p className='Result'>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+
+        <p className = {this.state.resultStatus ? "Result" : "Hidden"}>
           The distance between {this.state.depart} and {this.state.arrival} is{" "}
-          {this.state.distance} km
-        </p>
-        <p className='Result'>
-          With a {this.state.vehicle}, it takes {this.state.time} hours to make the trip, or {Math.floor(this.state.time / 24)} days.
+          {this.state.distance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} km
+        <br/>        
+          With a {this.state.vehicle}, it takes {this.state.time.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} hours to make
+          the trip, or:
+          <br/>
+           <ul>
+             <li>{Math.floor(this.state.time / 24).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} days.</li>
+             <li>{Math.floor(this.state.time / 24 / 365).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} years</li>
+           </ul>
         </p>
       </div>
     );

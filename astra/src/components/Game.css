@@ -23,6 +23,10 @@ input :hover {
   text-shadow: 1px 1px 2px black;
 }
 
+.Hidden{
+  display: none;
+}
+
 .DivCalcul{
   padding: 2%;
 }

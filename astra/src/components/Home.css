@@ -20,7 +20,8 @@
 .enter-button {
   font-size: 48px;
   border-radius: 10px;
-  background:rgb(66,79, 135);
+  background:black;
+  color: antiquewhite;
   opacity: 0.5;
   z-index: 2;
 }
