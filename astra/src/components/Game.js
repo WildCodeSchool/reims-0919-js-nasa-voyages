@@ -154,12 +154,13 @@ class Game extends React.Component {
   }
 
   handleSubmitNewVehicle(event) {
+    alert('Véhicule personnalisé ajouté !') 
     vehicleList[vehicleList.length] = {
       vehicle: this.state.customVehicle,
-      speed: this.state.customSpeed
+      speed: this.state.customSpeed,
     };
     this.setState({
-      vehicleOptions: vehicleList.map(option => option.vehicle),      
+      vehicleOptions: vehicleList.map(option => option.vehicle),     
     });
   }
 
