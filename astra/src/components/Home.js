@@ -38,7 +38,7 @@ class Home extends React.Component {
           alt="logo astra"
           className="astraLogo"
         />
-        <Link to="/Game" className="enter-button">
+        <Link to="/Reception" className="enter-button">
           Enter
         </Link>
       </section>

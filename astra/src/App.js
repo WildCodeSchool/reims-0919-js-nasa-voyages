@@ -19,7 +19,7 @@ function App() {
           <Navbar />
           <Route exact path="/Reception" component={() => <Reception />} />
           <Switch>
-          <Route exact path="/Game" component={() => <Game />} />
+            <Route exact path="/Game" component={() => <Game />} />
             <Route exact path="/Lexique" component={() => <SunData />} />
             <Route exact path="/Lexique/Planets" component={() => <PlanetData />} />
             <Route exact path="/Lexique/DwarfPlanets" component={() => <DwarfPlanetData />} />

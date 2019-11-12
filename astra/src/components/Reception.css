@@ -5,3 +5,36 @@
   display: flex;
   vertical-align: center;
 }
+
+.GButton{
+  display: flex;
+  text-align: center;
+
+}
+
+.LexiqueButton{
+  background-color: rgb(46, 62, 84);
+  font-size: 2em;
+  border-radius: 10%;
+  border-color: rgb(46, 62, 84);
+}
+.LexiqueButton a {
+  color: black;
+}
+
+.GameButton{
+  background-color: rgb(46, 62, 84);
+  font-size: 2em;
+  border-radius: 15%;
+  border-color: rgb(46, 62, 84);
+}
+
+.GameButton a {
+  color: black;
+}
+
+.GButton {
+  display: flex;
+  margin: 4%;
+  justify-content: space-evenly;
+}
