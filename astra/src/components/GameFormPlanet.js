@@ -7,7 +7,7 @@ const GameFormPlanet = props => {
       <form onSubmit={props.handleSubmit}>
         <div className="BoxMenu">
           <label className="Menu">
-            <p className="Depart">Your depart :</p>
+            <p className="Depart">Départ :</p>
             <select onChange={props.handleDepartChange}>
               <option value="" disabled selected>
                 Choisissez une planète
@@ -24,7 +24,7 @@ const GameFormPlanet = props => {
         </div>
 
         <label className="SMenuLabel">
-          <p className="Arrival">Your arrival : </p>
+          <p className="Arrival">Arrivée : </p>
           <div className="SMenu">
             <select onChange={props.handleArrivalChange}>
               <option value="" disabled selected>
