@@ -1,3 +1,10 @@
+.GReception{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 10%;
+  
+}
 .reception{
   color: antiquewhite;
   text-align: center;
@@ -9,30 +16,35 @@
 .GButton{
   display: flex;
   text-align: center;
-
 }
 
 .LexiqueButton{
   background-color: rgb(46, 62, 84);
-  font-size: 2em;
+  font-size: 1.7em;
   border-radius: 10%;
   border-color: rgb(46, 62, 84);
 }
 .LexiqueButton a {
-  color: black;
+  color: antiquewhite;
+}
+.LexiqueButton a:hover{
+  color: grey;
 }
 
 .GameButton{
   background-color: rgb(46, 62, 84);
-  font-size: 2em;
+  font-size: 1.7em;
   border-radius: 15%;
   border-color: rgb(46, 62, 84);
 }
 
 .GameButton a {
-  color: black;
+  color: antiquewhite
 }
 
+.GameButton a:hover{
+  color: grey;
+}
 .GButton {
   display: flex;
   margin: 4%;
