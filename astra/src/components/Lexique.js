@@ -1,5 +1,4 @@
 import React from "react";
-//import './Lexique.css';
 import { Link } from "react-router-dom";
 
 function Lexique() {

@@ -1,40 +1,48 @@
-import React from 'react'
-import './GameFormPlanet.css'
+import React from "react";
+import "./GameFormPlanet.css";
 
-class GameFormPlanet extends React.Component {
-  constructor (props){
-    super(props)
-  }
-  render() {
-    return (
-      <div className='Planet'>
-        <form onSubmit={this.props.handleSubmit}>
-          <div className='BoxMenu'>
-            <label className='Menu'>
-              <p className='Depart'>Your depart :</p>  
-                <select onChange={this.props.handleDepartChange}>
-                  {this.props.planetOptions.map(option => {
-                    return (
-                    <option key={`depart_${option}`} value={option}>{option}</option>
-                  )})}
-                </select>
-            </label>
+const GameFormPlanet = props => {
+  return (
+    <div className="Planet">
+      <form onSubmit={props.handleSubmit}>
+        <div className="BoxMenu">
+          <label className="Menu">
+            <p className="Depart">Your depart :</p>
+            <select onChange={props.handleDepartChange}>
+              <option value="" disabled selected>
+                Choisissez une planète
+              </option>
+              {props.planetOptions.map(option => {
+                return (
+                  <option key={`depart_${option}`} value={option}>
+                    {option}
+                  </option>
+                );
+              })}
+            </select>
+          </label>
+        </div>
+
+        <label className="SMenuLabel">
+          <p className="Arrival">Your arrival : </p>
+          <div className="SMenu">
+            <select onChange={props.handleArrivalChange}>
+              <option value="" disabled selected>
+                Choisissez une planète
+              </option>
+              {props.planetOptions.map(option => {
+                return (
+                  <option key={`arrival_${option}`} value={option}>
+                    {option}
+                  </option>
+                );
+              })}
+            </select>
           </div>
+        </label>
+      </form>
+    </div>
+  );
+};
 
-            <label className='SMenuLabel'>
-              <p className='Arrival'>Your arrival : </p>
-              <div className='SMenu'>
-                <select onChange={this.props.handleArrivalChange}>
-                  {this.props.planetOptions.map(option => {
-                    return (
-                    <option key ={`arrival_${option}`} value={option}>{option}</option>
-                  )})}
-                </select>
-              </div>
-            </label>
-        </form>
-      </div>
-    );
-  }
-}
-export default GameFormPlanet
+export default GameFormPlanet;

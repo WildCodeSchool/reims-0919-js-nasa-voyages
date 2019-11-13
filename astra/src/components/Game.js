@@ -2,61 +2,16 @@ import React from "react";
 import GameFormPlanet from "./GameFormPlanet";
 import GameFormVehicle from "./GameFormVehicle";
 import UtilisatorVehicleForm from "./UtilisatorVehicleForm";
+import vehicleList from "../data/vehicleList"
 import "./Game.css";
 import {Snackbar} from 'react-mdl'
-
-const planetList = [
-  {
-    id: "terre",
-    name: "La Terre",
-    englishName: "Earth",
-    distance: 149598262
-  },
-  {
-    id: "soleil",
-    name: "Le Soleil",
-    englishName: "Sun",
-    distance: 0
-  },
-  {
-    id: "saturne",
-    name: "Saturne",
-    englishName: "Saturn",
-    distance: 1426666422
-  },
-  {
-    id: "mercure",
-    name: "Mercure",
-    englishName: "Mercury",
-    distance: 57909227
-  }
-];
-
-const vehicleList = [
-  {
-    vehicle: "Car",
-    speed: "120"
-  },
-  {
-    vehicle: "Rocket",
-    speed: "39895"
-  },
-  {
-    vehicle: "Bicyle",
-    speed: "20"
-  },
-  {
-    vehicle: "Camel",
-    speed: "65"
-  }
-];
 
 class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      planetListBis: [],
-      planetOptions: planetList.map(option => option.englishName),
+      planetList: [],
+      planetOptions: [],
       vehicleOptions: vehicleList.map(option => option.vehicle),
       depart: "",
       departPosition: "",
@@ -79,48 +34,50 @@ class Game extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmitNewVehicle = this.handleSubmitNewVehicle.bind(this);
     this.handleTimeoutSnackbar = this.handleTimeoutSnackbar.bind(this);
+    this.setAllPlanets = this.setAllPlanets.bind(this);
   }
   componentDidMount() {
     fetch("https://api.le-systeme-solaire.net/rest/bodies")
       .then(response => response.json())
       .then(data =>
-        data.bodies.map(options => {
+        data.bodies.filter(options => {
           if (
-            options.isPlanet === true ||
+            options.isPlanet ||
             options.englishName === "Moon" ||
             options.englishName === "Sun" ||
             options.englishName === "Deimos" ||
             options.englishName === "Io"
           ) {
             this.setState({
-              planetListBis: options
+              planetList: [...this.state.planetList, options]
             });
           }
         })
       )
-      .then(
-        console.log(this.state.planetListBis)
-        // this.setState({
-        //   planetOptions: this.state.planetListBis.map(option => option.englishName)
-        // })
-      );
+      .then(this.setAllPlanets);
+  }
+
+  setAllPlanets() {
+    this.setState({
+      planetOptions: this.state.planetList.map(option => option.name)
+    });
   }
 
   handleDepartChange(event) {
-    planetList.forEach(planet => {
-      if (planet.englishName === event.target.value) {
+    this.state.planetList.forEach(planet => {
+      if (planet.name === event.target.value) {
         this.setState({
-          departPosition: planet.distance,
+          departPosition: planet.semimajorAxis,
           depart: event.target.value
         });
       }
     });
   }
   handleArrivalChange(event) {
-    planetList.forEach(planet => {
-      if (planet.englishName === event.target.value) {
+    this.state.planetList.forEach(planet => {
+      if (planet.name === event.target.value) {
         this.setState({
-          arrivalPosition: planet.distance,
+          arrivalPosition: planet.semimajorAxis,
           arrival: event.target.value
         });
       }
@@ -151,8 +108,10 @@ class Game extends React.Component {
     );
     this.setState({
       time: timeResult,
-      distance: Math.abs(this.state.departPosition - this.state.arrivalPosition),
-      resultStatus: true,
+      distance: Math.abs(
+        this.state.departPosition - this.state.arrivalPosition
+      ),
+      resultStatus: true
     });
   }
 
@@ -218,17 +177,29 @@ class Game extends React.Component {
         <br/>
         <br/>
 
-        <p className = {this.state.resultStatus ? "Result" : "Hidden"}>
+        <p className={this.state.resultStatus ? "Result" : "Hidden"}>
           The distance between {this.state.depart} and {this.state.arrival} is{" "}
-          {this.state.distance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} km
-        <br/>        
-          With a {this.state.vehicle}, it takes {this.state.time.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} hours to make
-          the trip, or:
-          <br/>
-           <ul>
-             <li>{Math.floor(this.state.time / 24).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} days.</li>
-             <li>{Math.floor(this.state.time / 24 / 365).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} years</li>
-           </ul>
+          {this.state.distance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
+          km
+          <br />
+          With a {this.state.vehicle}, it takes{" "}
+          {this.state.time.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
+          hours to make the trip, or:
+          <br />
+          <ul>
+            <li>
+              {Math.floor(this.state.time / 24)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
+              days.
+            </li>
+            <li>
+              {Math.floor(this.state.time / 24 / 365)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
+              years
+            </li>
+          </ul>
         </p>
       </div>
     );
