@@ -1,14 +1,14 @@
 import React from "react";
 import "./Lexicon.css";
 
-const Lexicon = props => (
+const Lexicon = ({image, name, description}) => (
   <div className="lexiconPage">
     <div className="lexicon">
-      <h3 className="name">{props.name}</h3>
+      <h3 className="name">{name}</h3>
       <div className="lexiconContent">
-        <p>{props.description}</p>
+        <p>{description}</p>
         <figure>
-          <img src={props.image} alt={props.name} />
+          <img src={image} alt={name} />
         </figure>
       </div>
     </div>

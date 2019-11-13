@@ -1,18 +1,18 @@
 import React from "react";
 import "./GameFormPlanet.css";
 
-const GameFormPlanet = props => {
+const GameFormPlanet = ({handleSubmit, handleDepartChange, planetOptions,handleArrivalChange}) => {
   return (
     <div className="Planet">
-      <form onSubmit={props.handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <div className="BoxMenu">
           <label className="Menu">
             <p className="Depart">Départ:</p>
-            <select defaultValue = "" onChange={props.handleDepartChange}>
+            <select defaultValue = "" onChange={handleDepartChange}>
               <option value="" disabled>
                 Choisissez une planète
               </option>
-              {props.planetOptions.map(option => {
+              {planetOptions.map(option => {
                 return (
                   <option key={`depart_${option}`} value={option}>
                     {option}
@@ -26,11 +26,11 @@ const GameFormPlanet = props => {
         <label className="SMenuLabel">
           <p className="Arrival">Arrivée: </p>
           <div className="SMenu">
-            <select defaultValue = "" onChange={props.handleArrivalChange}>
+            <select defaultValue = "" onChange={handleArrivalChange}>
               <option value="" disabled>
                 Choisissez une planète
               </option>
-              {props.planetOptions.map(option => {
+              {planetOptions.map(option => {
                 return (
                   <option key={`arrival_${option}`} value={option}>
                     {option}
