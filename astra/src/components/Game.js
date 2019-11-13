@@ -3,6 +3,7 @@ import GameFormPlanet from "./GameFormPlanet";
 import GameFormVehicle from "./GameFormVehicle";
 import UtilisatorVehicleForm from "./UtilisatorVehicleForm";
 import "./Game.css";
+import {Snackbar} from 'react-mdl'
 
 const planetList = [
   {
@@ -68,6 +69,7 @@ class Game extends React.Component {
       customSpeed: "",
       customVehicle: "",
       resultStatus: false,
+      isSnackbarActive: false,
     };
     this.handleDepartChange = this.handleDepartChange.bind(this);
     this.handleArrivalChange = this.handleArrivalChange.bind(this);
@@ -76,6 +78,7 @@ class Game extends React.Component {
     this.handleCustomSpeedChange = this.handleCustomSpeedChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmitNewVehicle = this.handleSubmitNewVehicle.bind(this);
+    this.handleTimeoutSnackbar = this.handleTimeoutSnackbar.bind(this);
   }
   componentDidMount() {
     fetch("https://api.le-systeme-solaire.net/rest/bodies")
@@ -153,18 +156,24 @@ class Game extends React.Component {
     });
   }
 
-  handleSubmitNewVehicle(event) {
-    alert('Véhicule personnalisé ajouté !') 
+  handleSubmitNewVehicle(event) { 
     vehicleList[vehicleList.length] = {
       vehicle: this.state.customVehicle,
       speed: this.state.customSpeed,
     };
     this.setState({
-      vehicleOptions: vehicleList.map(option => option.vehicle),     
+      vehicleOptions: vehicleList.map(option => option.vehicle),
+      isSnackbarActive: true    
     });
   }
 
+  
+  handleTimeoutSnackbar() {
+    this.setState({ isSnackbarActive: false });
+  }
+
   render() {
+    const { isSnackbarActive } = this.state;
     return (
       <div className="Game">
         <GameFormPlanet
@@ -200,6 +209,10 @@ class Game extends React.Component {
           value="Ajouter"
           onClick={this.handleSubmitNewVehicle}
         />
+        <Snackbar
+          active={isSnackbarActive}
+          onTimeout={this.handleTimeoutSnackbar}>Vehicule personnalise ajoute !
+          </Snackbar>
         <br/>
         <br/>
         <br/>
