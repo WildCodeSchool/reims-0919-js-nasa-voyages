@@ -65,7 +65,8 @@ class Game extends React.Component {
       if (planet.name === event.target.value) {
         this.setState({
           departPosition: planet.semimajorAxis,
-          depart: event.target.value
+          depart: event.target.value,
+          resultStatus: false
         });
       }
     });
@@ -75,7 +76,8 @@ class Game extends React.Component {
       if (planet.name === event.target.value) {
         this.setState({
           arrivalPosition: planet.semimajorAxis,
-          arrival: event.target.value
+          arrival: event.target.value,
+          resultStatus: false
         });
       }
     });
@@ -84,16 +86,16 @@ class Game extends React.Component {
   handleVehicleChange(event) {
     vehicleList.forEach(vehicle => {
       if (vehicle.vehicle === event.target.value) {
-        this.setState({ speed: vehicle.speed, vehicle: event.target.value });
+        this.setState({ speed: vehicle.speed, vehicle: event.target.value, resultStatus: false });
       }
     });
   }
   handleCustomVehicleChange(event) {
-    this.setState({ customVehicle: event.target.value });
+    this.setState({ customVehicle: event.target.value, resultStatus: false });
   }
 
   handleCustomSpeedChange(event) {
-    this.setState({ customSpeed: event.target.value });
+    this.setState({ customSpeed: event.target.value, resultStatus: false });
   }
 
   handleSubmit(event) {
