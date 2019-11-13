@@ -2,26 +2,8 @@ import React from "react";
 import GameFormPlanet from "./GameFormPlanet";
 import GameFormVehicle from "./GameFormVehicle";
 import UtilisatorVehicleForm from "./UtilisatorVehicleForm";
+import vehicleList from "../data/vehicleList"
 import "./Game.css";
-
-const vehicleList = [
-  {
-    vehicle: "Car",
-    speed: "120"
-  },
-  {
-    vehicle: "Rocket",
-    speed: "39895"
-  },
-  {
-    vehicle: "Bicyle",
-    speed: "20"
-  },
-  {
-    vehicle: "Camel",
-    speed: "65"
-  }
-];
 
 class Game extends React.Component {
   constructor(props) {
@@ -57,7 +39,7 @@ class Game extends React.Component {
       .then(data =>
         data.bodies.filter(options => {
           if (
-            options.isPlanet === true ||
+            options.isPlanet ||
             options.englishName === "Moon" ||
             options.englishName === "Sun" ||
             options.englishName === "Deimos" ||
@@ -74,7 +56,7 @@ class Game extends React.Component {
 
   setAllPlanets() {
     this.setState({
-      planetOptions: this.state.planetList.map(option => option.name.replace())
+      planetOptions: this.state.planetList.map(option => option.name)
     });
   }
 
@@ -176,9 +158,6 @@ class Game extends React.Component {
           value="Ajouter"
           onClick={this.handleSubmitNewVehicle}
         />
-        <br />
-        <br />
-        <br />
         <br />
 
         <p className={this.state.resultStatus ? "Result" : "Hidden"}>
