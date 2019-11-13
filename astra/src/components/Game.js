@@ -80,7 +80,7 @@ class Game extends React.Component {
 
   handleDepartChange(event) {
     this.state.planetList.forEach(planet => {
-      if (planet.englishName === event.target.value) {
+      if (planet.name === event.target.value) {
         this.setState({
           departPosition: planet.semimajorAxis,
           depart: event.target.value
@@ -90,7 +90,7 @@ class Game extends React.Component {
   }
   handleArrivalChange(event) {
     this.state.planetList.forEach(planet => {
-      if (planet.englishName === event.target.value) {
+      if (planet.name === event.target.value) {
         this.setState({
           arrivalPosition: planet.semimajorAxis,
           arrival: event.target.value
