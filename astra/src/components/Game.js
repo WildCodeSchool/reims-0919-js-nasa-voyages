@@ -74,7 +74,7 @@ class Game extends React.Component {
 
   setAllPlanets() {
     this.setState({
-      planetOptions: this.state.planetList.map(option => option.name.replace())
+      planetOptions: this.state.planetList.map(option => option.name)
     });
   }
 
