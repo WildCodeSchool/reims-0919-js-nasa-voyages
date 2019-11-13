@@ -57,7 +57,7 @@ class Game extends React.Component {
       .then(data =>
         data.bodies.filter(options => {
           if (
-            options.isPlanet === true ||
+            options.isPlanet ||
             options.englishName === "Moon" ||
             options.englishName === "Sun" ||
             options.englishName === "Deimos" ||
