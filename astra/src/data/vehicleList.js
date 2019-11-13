@@ -46,6 +46,14 @@ const vehicleList = [
   {
     vehicle: "Bugatti Veyron",
     speed: "431"
+  },
+  {
+    vehicle: "Mobylette",
+    speed: "25"
+  },
+  {
+    vehicle: "Crawl",
+    speed: "3"
   }
 
 ];
