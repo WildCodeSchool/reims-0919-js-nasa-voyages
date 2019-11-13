@@ -14,16 +14,14 @@ function App() {
     <div className="App">
       <Switch>
         <Route exact path="/" component={() => <Home />} />
-        <div className="application">
+        <React.Fragment>
           <Navbar />
           <Route exact path="/Game" component={() => <Game />} />
-          <Switch>
             <Route exact path="/Lexique" component={() => <SunData />} />
             <Route exact path="/Lexique/Planets" component={() => <PlanetData />} />
             <Route exact path="/Lexique/DwarfPlanets" component={() => <DwarfPlanetData />} />
             <Route exact path="/Lexique/Satellites" component={() => <SatelliteData />} />
-          </Switch>
-        </div>
+        </React.Fragment>
       </Switch>
     </div>
   );
