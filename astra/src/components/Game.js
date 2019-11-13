@@ -2,9 +2,9 @@ import React from "react";
 import GameFormPlanet from "./GameFormPlanet";
 import GameFormVehicle from "./GameFormVehicle";
 import UtilisatorVehicleForm from "./UtilisatorVehicleForm";
-import vehicleList from "../data/vehicleList"
+import vehicleList from "../data/vehicleList";
 import "./Game.css";
-import {Snackbar} from 'react-mdl'
+import {Snackbar} from 'react-mdl';
 
 class Game extends React.Component {
   constructor(props) {
@@ -172,9 +172,6 @@ class Game extends React.Component {
           active={isSnackbarActive}
           onTimeout={this.handleTimeoutSnackbar}>Vehicule personnalise ajoute !
           </Snackbar>
-        <br/>
-        <br/>
-        <br/>
         <br/>
 
         <p className={this.state.resultStatus ? "Result" : "Hidden"}>
