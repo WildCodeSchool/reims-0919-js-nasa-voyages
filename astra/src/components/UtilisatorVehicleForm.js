@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
+import './UtilisatorVehicleForm.css'
 
 class UtilisatorVehicleForm extends Component {
   render () {
     return (
+      <div className='Utilisator'>
       <form onSubmit={this.props.handleSubmit}>
-        <label htmlFor='vehicleName'>Name your vehicle : </label>
+        <label className='VehicleName' htmlFor='vehicleName'>Name your vehicle : </label>
         <input
           id='vehicleName'
           name='vehicleName'
@@ -13,7 +15,7 @@ class UtilisatorVehicleForm extends Component {
           onChange={this.props.handleCustomVehicleChange}
         /> 
         <br/>
-        <label htmlFor='vehicleName'>Set your speed average : </label>
+        <label className='VehicleSpeed' htmlFor='vehicleName'>Set your speed average : </label>
         <input
           id='speedAverage'
           name='speedAverage'
@@ -23,7 +25,7 @@ class UtilisatorVehicleForm extends Component {
         />
         <p>{this.props.userVehicle}</p>
       </form>
-      
+      </div>
     )
   }
 }

@@ -1,29 +1,48 @@
-import React from 'react'
+import React from "react";
+import "./GameFormPlanet.css";
 
-class GameFormPlanet extends React.Component {
-  render() {
-    return (
-      <form onSubmit={this.props.handleSubmit}>
-        <label>
-          Choose your planet:
-          <select defaultValue={this.props.planet_options[0]} onChange={this.props.handleDepartChange}>
-            {this.props.planet_options.map(option => {
-              return (
-              <option key={`depart_${option}`} value={option}>{option}</option>
-            )})}
-          </select>
-        </label>
-        <label>
-          Choose your planet:
-          <select defaultValue={this.props.planet_options[0]} onChange={this.props.handleArrivalChange}>
-            {this.props.planet_options.map(option => {
-              return (
-              <option key ={`arrival_${option}`} value={option}>{option}</option>
-            )})}
-          </select>
+const GameFormPlanet = props => {
+  return (
+    <div className="Planet">
+      <form onSubmit={props.handleSubmit}>
+        <div className="BoxMenu">
+          <label className="Menu">
+            <p className="Depart">Your depart :</p>
+            <select onChange={props.handleDepartChange}>
+              <option value="" disabled selected>
+                Choisissez une planète
+              </option>
+              {props.planetOptions.map(option => {
+                return (
+                  <option key={`depart_${option}`} value={option}>
+                    {option}
+                  </option>
+                );
+              })}
+            </select>
+          </label>
+        </div>
+
+        <label className="SMenuLabel">
+          <p className="Arrival">Your arrival : </p>
+          <div className="SMenu">
+            <select onChange={props.handleArrivalChange}>
+              <option value="" disabled selected>
+                Choisissez une planète
+              </option>
+              {props.planetOptions.map(option => {
+                return (
+                  <option key={`arrival_${option}`} value={option}>
+                    {option}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
         </label>
       </form>
-    );
-  }
-}
-export default GameFormPlanet
+    </div>
+  );
+};
+
+export default GameFormPlanet;

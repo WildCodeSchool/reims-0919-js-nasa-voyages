@@ -1,0 +1,32 @@
+.Game, .Add{
+  text-align: center;
+
+}
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+
+input :hover {
+  color: brown;
+}
+
+.OrCreate{
+  color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  text-shadow: 1px 1px 2px black;
+  font-size: 1.7em;
+  line-height: 0%;
+}
+
+.Result{
+  color: antiquewhite;
+  text-shadow: 1px 1px 2px black;
+}
+
+.Hidden{
+  display: none;
+}
+
+.DivCalcul{
+  padding: 2%;
+}

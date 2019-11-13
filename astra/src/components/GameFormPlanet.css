@@ -1,0 +1,33 @@
+.Planet{
+  color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  text-shadow: 1px 1px 2px black;
+  font-size: 1em;
+}
+
+.Planet, label{
+  display: flex;
+  align-items: space-around;
+  justify-content: center;
+}
+
+/* .Menu{
+  display: flex;
+  vertical-align: middle;  
+  box-sizing: border-box;
+} */
+
+.BoxMenu{
+  display: inline-block;
+}
+
+.Depart{
+  margin: 0%;
+  padding: 1%;
+}
+
+.Arrival{
+  margin: 0%;
+  padding: 1%;
+}

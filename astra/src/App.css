@@ -1,6 +1,28 @@
-.application {
+.Application {
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: center;
 }
 
+.App{
+  background-image: url('https://i.ytimg.com/vi/cg_zhVD1f_k/maxresdefault.jpg') ;
+  height: 100vh;
+  background-size: cover;
+}
+
+.Game{
+  padding: 3%;
+}
+
+a {
+  color: antiquewhite;
+}
+
+a :hover{
+  color: grey;
+}
+
+.application {
+  text-align: center;
+}
