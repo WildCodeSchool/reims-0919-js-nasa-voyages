@@ -2,12 +2,13 @@
   background-color:rgba(5, 22, 45);
   color: antiquewhite;
   text-align: justify;
-
+  font-size: 1.2em;
 }
 
 .LexiqueSun{
   background-color:rgba(5, 22, 45);
   color: antiquewhite;
   text-align: justify;
-  height: 100vh;
+  /* height: 100vh; */
+  font-size: 1.2em;
 }
