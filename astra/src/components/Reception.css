@@ -1,0 +1,54 @@
+.GReception{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 10%;
+  
+}
+.reception{
+  color: antiquewhite;
+  text-align: center;
+  font-size: 2em;
+  display: flex;
+  vertical-align: center;
+}
+
+.GButton{
+  display: flex;
+  text-align: center;
+}
+
+.LexiqueButton{
+  background-color: rgba(50, 115, 220, 0);
+  font-size: 1.7em;
+  border-radius: 10%;
+  border-color: none;
+}
+.LexiqueButton a {
+  color: antiquewhite;
+}
+.LexiqueButton a:hover{
+  color: black, 0.3;
+  background-color: grey;
+}
+
+.GameButton{
+  background-color: rgba(50, 115, 220, 0);
+  font-size: 1.7em;
+  border-radius: 15%;
+  border-color: none;
+}
+
+.GameButton a {
+  color: antiquewhite
+}
+
+.GameButton a:hover{
+  color: black, 0.3;
+  background-color: grey;
+}
+.GButton {
+  display: flex;
+  margin: 4%;
+  justify-content: space-evenly;
+}

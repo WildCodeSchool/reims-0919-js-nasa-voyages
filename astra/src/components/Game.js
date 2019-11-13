@@ -159,7 +159,7 @@ class Game extends React.Component {
           />
         </div>
         <div className="Create">
-          <p className="OrCreate">Or create your vehicle</p>
+          <p className="OrCreate">Ou crée ton véhicule</p>
         </div>
         <UtilisatorVehicleForm
           handleCustomVehicleChange={this.handleCustomVehicleChange}
@@ -177,26 +177,27 @@ class Game extends React.Component {
         <br/>
 
       <section className={this.state.resultStatus ? "Result" : "Hidden"}>
-          The distance between {this.state.depart} and {this.state.arrival} is{" "}
+          La distance entre {this.state.depart} et {this.state.arrival} est de{" "}
           {this.state.distance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
           km
           <br />
-          With a {this.state.vehicle}, it takes{" "}
+          En {this.state.vehicle}, cela prendrai{" "}
           {this.state.time.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
-          hours to make the trip, or:
+          heures pour faire le voyage, ou:
           <br />
           <ul>
             <li>
               {Math.floor(this.state.time / 24)
                 .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
-              days.
+              jours. 
             </li>
             <li>
+              Soit {" "}
               {Math.floor(this.state.time / 24 / 365)
                 .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
-              years
+              années
             </li>
           </ul>
         

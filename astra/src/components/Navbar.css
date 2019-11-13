@@ -4,11 +4,11 @@
   justify-content: center;
   width: 100%;
   height: 75px;
-  background-color: rgba(5, 22, 45)
+  background-color: rgba(5, 22, 45);
 }
 
-.logoAstra, img { 
-  height: 100%;
+.logoAstra img { 
+  height: 40%;
   width: auto;
 }
 
@@ -23,5 +23,26 @@
 
 a {
   text-decoration: none;
+}
+
+
+.navbar{
+  display: inline;
+  justify-content: flex-start, space-around;
+  
+}
+
+.navbarList ul{
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(5, 22, 45);
+  font-size: 1.4em;
+}
+.navbarList ul a:hover{
+  color: grey;
+}
+
+.navbar, .logoAstra {
+  text-align: center;
 }
 
