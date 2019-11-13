@@ -2,7 +2,7 @@ import React from "react";
 import GameFormPlanet from "./GameFormPlanet";
 import GameFormVehicle from "./GameFormVehicle";
 import UtilisatorVehicleForm from "./UtilisatorVehicleForm";
-import vehicleList from "../data/vehicleList"
+import vehicleList from "../data/vehicleList";
 import "./Game.css";
 
 class Game extends React.Component {
@@ -160,7 +160,7 @@ class Game extends React.Component {
         />
         <br />
 
-        <p className={this.state.resultStatus ? "Result" : "Hidden"}>
+        <section className={this.state.resultStatus ? "Result" : "Hidden"}>
           The distance between {this.state.depart} and {this.state.arrival} is{" "}
           {this.state.distance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
           km
@@ -183,7 +183,7 @@ class Game extends React.Component {
               years
             </li>
           </ul>
-        </p>
+        </section>
       </div>
     );
   }
