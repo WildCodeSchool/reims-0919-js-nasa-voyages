@@ -2,26 +2,8 @@ import React from "react";
 import GameFormPlanet from "./GameFormPlanet";
 import GameFormVehicle from "./GameFormVehicle";
 import UtilisatorVehicleForm from "./UtilisatorVehicleForm";
+import vehicleList from "../data/vehicleList"
 import "./Game.css";
-
-const vehicleList = [
-  {
-    vehicle: "Car",
-    speed: "120"
-  },
-  {
-    vehicle: "Rocket",
-    speed: "39895"
-  },
-  {
-    vehicle: "Bicyle",
-    speed: "20"
-  },
-  {
-    vehicle: "Camel",
-    speed: "65"
-  }
-];
 
 class Game extends React.Component {
   constructor(props) {
