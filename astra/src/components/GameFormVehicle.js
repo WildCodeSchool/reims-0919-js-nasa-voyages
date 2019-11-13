@@ -1,8 +1,7 @@
 import React from "react";
 import "./GameFormVehicle.css";
 
-class GameFormVehicle extends React.Component {
-  render() {
+const GameFormVehicle = (props) => {
     return (
       <div className="Vehicle">
         <form onSubmit={props.handleSubmit}>
@@ -25,5 +24,4 @@ class GameFormVehicle extends React.Component {
       </div>
     );
   }
-}
 export default GameFormVehicle;
