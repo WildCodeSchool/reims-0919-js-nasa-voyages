@@ -4,33 +4,6 @@ import GameFormVehicle from "./GameFormVehicle";
 import UtilisatorVehicleForm from "./UtilisatorVehicleForm";
 import "./Game.css";
 
-const planetList = [
-  {
-    id: "terre",
-    name: "La Terre",
-    englishName: "Earth",
-    distance: 149598262
-  },
-  {
-    id: "soleil",
-    name: "Le Soleil",
-    englishName: "Sun",
-    distance: 0
-  },
-  {
-    id: "saturne",
-    name: "Saturne",
-    englishName: "Saturn",
-    distance: 1426666422
-  },
-  {
-    id: "mercure",
-    name: "Mercure",
-    englishName: "Mercury",
-    distance: 57909227
-  }
-];
-
 const vehicleList = [
   {
     vehicle: "Car",
@@ -54,8 +27,8 @@ class Game extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      planetListBis: [],
-      planetOptions: planetList.map(option => option.englishName),
+      planetList: [],
+      planetOptions: [],
       vehicleOptions: vehicleList.map(option => option.vehicle),
       depart: "",
       departPosition: "",
@@ -67,7 +40,7 @@ class Game extends React.Component {
       time: "",
       customSpeed: "",
       customVehicle: "",
-      resultStatus: false,
+      resultStatus: false
     };
     this.handleDepartChange = this.handleDepartChange.bind(this);
     this.handleArrivalChange = this.handleArrivalChange.bind(this);
@@ -76,12 +49,13 @@ class Game extends React.Component {
     this.handleCustomSpeedChange = this.handleCustomSpeedChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmitNewVehicle = this.handleSubmitNewVehicle.bind(this);
+    this.setAllPlanets = this.setAllPlanets.bind(this);
   }
   componentDidMount() {
     fetch("https://api.le-systeme-solaire.net/rest/bodies")
       .then(response => response.json())
       .then(data =>
-        data.bodies.map(options => {
+        data.bodies.filter(options => {
           if (
             options.isPlanet === true ||
             options.englishName === "Moon" ||
@@ -90,34 +64,35 @@ class Game extends React.Component {
             options.englishName === "Io"
           ) {
             this.setState({
-              planetListBis: options
+              planetList: [...this.state.planetList, options]
             });
           }
         })
       )
-      .then(
-        console.log(this.state.planetListBis)
-        // this.setState({
-        //   planetOptions: this.state.planetListBis.map(option => option.englishName)
-        // })
-      );
+      .then(this.setAllPlanets);
+  }
+
+  setAllPlanets() {
+    this.setState({
+      planetOptions: this.state.planetList.map(option => option.name.replace())
+    });
   }
 
   handleDepartChange(event) {
-    planetList.forEach(planet => {
+    this.state.planetList.forEach(planet => {
       if (planet.englishName === event.target.value) {
         this.setState({
-          departPosition: planet.distance,
+          departPosition: planet.semimajorAxis,
           depart: event.target.value
         });
       }
     });
   }
   handleArrivalChange(event) {
-    planetList.forEach(planet => {
+    this.state.planetList.forEach(planet => {
       if (planet.englishName === event.target.value) {
         this.setState({
-          arrivalPosition: planet.distance,
+          arrivalPosition: planet.semimajorAxis,
           arrival: event.target.value
         });
       }
@@ -148,8 +123,10 @@ class Game extends React.Component {
     );
     this.setState({
       time: timeResult,
-      distance: Math.abs(this.state.departPosition - this.state.arrivalPosition),
-      resultStatus: true,
+      distance: Math.abs(
+        this.state.departPosition - this.state.arrivalPosition
+      ),
+      resultStatus: true
     });
   }
 
@@ -159,7 +136,7 @@ class Game extends React.Component {
       speed: this.state.customSpeed
     };
     this.setState({
-      vehicleOptions: vehicleList.map(option => option.vehicle),      
+      vehicleOptions: vehicleList.map(option => option.vehicle)
     });
   }
 
@@ -199,22 +176,34 @@ class Game extends React.Component {
           value="Ajouter"
           onClick={this.handleSubmitNewVehicle}
         />
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+        <br />
+        <br />
+        <br />
+        <br />
 
-        <p className = {this.state.resultStatus ? "Result" : "Hidden"}>
-          La distance entre {this.state.depart} et {this.state.arrival} est de{" "}
-          {this.state.distance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} km
-        <br/>        
-          En {this.state.vehicle}, cela prendrait {this.state.time.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} heures pour
-          le voyage, ou :
-          <br/>
-           <ul>
-             <li>{Math.floor(this.state.time / 24).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} jours.</li>
-             <li>{Math.floor(this.state.time / 24 / 365).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} années.</li>
-           </ul>
+        <p className={this.state.resultStatus ? "Result" : "Hidden"}>
+          The distance between {this.state.depart} and {this.state.arrival} is{" "}
+          {this.state.distance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
+          km
+          <br />
+          With a {this.state.vehicle}, it takes{" "}
+          {this.state.time.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
+          hours to make the trip, or:
+          <br />
+          <ul>
+            <li>
+              {Math.floor(this.state.time / 24)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
+              days.
+            </li>
+            <li>
+              {Math.floor(this.state.time / 24 / 365)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
+              years
+            </li>
+          </ul>
         </p>
       </div>
     );
