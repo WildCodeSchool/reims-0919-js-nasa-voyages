@@ -41,7 +41,7 @@ const DwarfPlanetData = () => (
   <div className='Lexique' >
    <Lexique/>
     {DwarfPlanets.map(item => (
-      <Lexicon name={item.name} description={item.description} image={item.image} />
+      <Lexicon key= {item.name} name={item.name} description={item.description} image={item.image} />
     ))}
   </div>
 );

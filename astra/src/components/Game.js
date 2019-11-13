@@ -177,9 +177,6 @@ class Game extends React.Component {
           onClick={this.handleSubmitNewVehicle}
         />
         <br />
-        <br />
-        <br />
-        <br />
 
         <p className={this.state.resultStatus ? "Result" : "Hidden"}>
           The distance between {this.state.depart} and {this.state.arrival} is{" "}
