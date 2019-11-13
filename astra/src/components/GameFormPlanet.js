@@ -8,8 +8,8 @@ const GameFormPlanet = props => {
         <div className="BoxMenu">
           <label className="Menu">
             <p className="Depart">Your depart :</p>
-            <select defaultValue = "Choisissez une planète" onChange={props.handleDepartChange}>
-              <option value="Choisissez une planète" disabled>
+            <select defaultValue = "" onChange={props.handleDepartChange}>
+              <option value="" disabled>
                 Choisissez une planète
               </option>
               {props.planetOptions.map(option => {
@@ -26,8 +26,8 @@ const GameFormPlanet = props => {
         <label className="SMenuLabel">
           <p className="Arrival">Your arrival : </p>
           <div className="SMenu">
-            <select defaultValue = "Choisissez une planète" onChange={props.handleArrivalChange}>
-              <option value="Choisissez une planète" disabled>
+            <select defaultValue = "" onChange={props.handleArrivalChange}>
+              <option value="" disabled>
                 Choisissez une planète
               </option>
               {props.planetOptions.map(option => {
