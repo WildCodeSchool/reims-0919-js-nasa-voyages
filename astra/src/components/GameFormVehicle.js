@@ -7,8 +7,8 @@ const GameFormVehicle = (props) => {
         <form onSubmit={props.handleSubmit}>
           <label className="LabelVehicle">
             Choisis ton véhicule:
-            <select onChange={props.handleVehicleChange}>
-              <option value="" disabled selected>
+            <select defaultValue = "" onChange={props.handleVehicleChange}>
+              <option value="" disabled>
                 Choisissez un véhicule
               </option>
               {props.vehicleOptions.map(option => {

@@ -7,8 +7,8 @@
   background-color: rgba(5, 22, 45);
 }
 
-.logoAstra, img { 
-  height: 100%;
+.logoAstra img { 
+  height: 40%;
   width: auto;
 }
 
@@ -42,9 +42,7 @@ a {
   color: grey;
 }
 
-
-
-/* .navbar, .logoAstra {
-  text-align: left;
-} */
+.navbar, .logoAstra {
+  text-align: center;
+}
 
