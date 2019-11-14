@@ -2,7 +2,7 @@
 
 .Game {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-direction: row;
 }
 
@@ -15,12 +15,12 @@ input :hover {
   color: brown;
 }
 
-.OrCreate{
+.plan-travel h3{
   color: antiquewhite;
   display: flex;
   justify-content: center;
   text-shadow: 1px 1px 2px black;
-  font-size: 1.7em;
+  font-size: 2em;
   line-height: 0%;
 }
 
@@ -29,30 +29,39 @@ input :hover {
   text-shadow: 1px 1px 2px black;
 }
 
-.Hidden{
-  display: none;
-}
-
-.DivCalcul{
-  padding: 2%;
-}
-
 .plan-travel {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 40%;
+}
+
+.plan-travel select{
+  margin-bottom: 5%;
 }
 
 .plan-travel p {
   font-size: 2rem;
   text-shadow: 1px 1px 2px purple;
-  padding: 10% 0;
   color: antiquewhite;
 }
 
 .calculation, .DivCalcul {
   display: flex;
-  align-items: center;
   flex-direction: column;
   justify-content: center;
+  height: 200px;
+  width: 40%;  
+}
+
+.calculation {
+  margin-top: 2em;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px purple;
+  color: antiquewhite;
+}
+
+.Calcul {
+  max-width: 30%;
+  margin: auto;
 }

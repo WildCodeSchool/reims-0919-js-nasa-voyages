@@ -164,7 +164,7 @@ class Game extends React.Component {
             handleSubmit={this.handleSubmit}
           />
           <div className="Create">
-            <p className="OrCreate">Ou crées ton véhicule</p>
+            <h3 className="OrCreate">Ou crées ton véhicule</h3>
             <FABButton colored ripple onClick={this.handleAddVehicleAppear}>
               <Icon name="+" />
             </FABButton>

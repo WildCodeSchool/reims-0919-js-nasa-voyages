@@ -1,15 +1,18 @@
-.VehicleName{
+.Utilisator{
   color: antiquewhite;
-  display: flex;
-  justify-content: center;
+  display: inline-flex;
+  flex-direction: row;
   text-shadow: 1px 1px 2px black;
   padding: 2%;
+  align-items: flex-start;
 }
 
-.VehicleSpeed{
-  color: antiquewhite;
+.Utilisator form {
   display: flex;
-  justify-content: center;
-  text-shadow: 1px 1px 2px black;
-  padding: 2%;
+  padding: 0;
+}
+.vitesse-vehicule, .nom-vehicule {
+  display: flex;
+  flex-direction: column;
+  padding: 0 2%;
 }
