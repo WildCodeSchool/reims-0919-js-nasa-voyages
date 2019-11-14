@@ -19,7 +19,7 @@
 .buttonBackground{
   margin-top: 20%;
   border-radius: 10px;
-  background:linear-gradient(217deg, #00b8ff, #bd00ff);
+  background: rgba(5, 22, 45);
   opacity: 0.9;
   z-index: 2;
   height: 3em;
@@ -29,16 +29,20 @@
 
 .enter-button p{
   font-size: 48px;
-  color: #f6b957;
   z-index: 2;
   text-align: center;
   margin-top: 0.2em;
-  text-shadow: 1px 1px 1px black;
+  text-shadow: 0px 0px 3px lightgray;
 }
 
 .buttonBackground:hover {
-  opacity: 0.7;
+  opacity: 0.5;
+  color: lightblue;
 }
+
+.enter-button p:hover{
+  color: lightblue
+} 
 
 section {
   display: flex;
