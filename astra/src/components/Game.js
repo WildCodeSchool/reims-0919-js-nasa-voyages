@@ -65,7 +65,7 @@ class Game extends React.Component {
 
   handleDepartChange(event) {
     this.state.planetList.forEach(planet => {
-      if (planet.name === event.target.value) {
+      if (planet.name === event.target.value && planet.isPlanet) {
         this.setState({
           departPosition: planet.semimajorAxis,
           depart: event.target.value,
