@@ -1,23 +1,20 @@
 .Planet{
   color: antiquewhite;
   display: flex;
-  justify-content: center;
-  text-shadow: 1px 1px 2px black;
-  font-size: 1em;
+  justify-content: left;
+  margin-left: 3%;
 }
 
-.Planet, label{
-  display: flex;
-  align-items: space-around;
-  justify-content: center;
+.Planet p{
+  font-size: 2rem;
+  text-shadow: 1px 1px 2px purple;
+  padding: 10% 0;
 }
 
-/* .Menu{
-  display: flex;
-  vertical-align: middle;  
-  box-sizing: border-box;
-} */
-
+.Planet select{
+  font-size: 2rem;
+  text-shadow: 1px 1px 2px purple
+}
 .BoxMenu{
   display: inline-block;
 }

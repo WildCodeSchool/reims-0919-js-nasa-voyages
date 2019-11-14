@@ -4,7 +4,7 @@ import GameFormVehicle from "./GameFormVehicle";
 import UtilisatorVehicleForm from "./UtilisatorVehicleForm";
 import vehicleList from "../data/vehicleList";
 import "./Game.css";
-import { Snackbar } from "react-mdl";
+import { Snackbar, FABButton, Icon } from "react-mdl";
 
 class Game extends React.Component {
   constructor(props) {
@@ -24,7 +24,8 @@ class Game extends React.Component {
       customSpeed: "",
       customVehicle: "",
       resultStatus: false,
-      isSnackbarActive: false
+      isSnackbarActive: false,
+      addVehicleVisible: false
     };
     this.handleDepartChange = this.handleDepartChange.bind(this);
     this.handleArrivalChange = this.handleArrivalChange.bind(this);
@@ -35,6 +36,7 @@ class Game extends React.Component {
     this.handleSubmitNewVehicle = this.handleSubmitNewVehicle.bind(this);
     this.handleTimeoutSnackbar = this.handleTimeoutSnackbar.bind(this);
     this.setAllPlanets = this.setAllPlanets.bind(this);
+    this.handleAddVehicleAppear = this.handleAddVehicleAppear.bind(this);
   }
   componentDidMount() {
     fetch("https://api.le-systeme-solaire.net/rest/bodies")
@@ -121,6 +123,12 @@ class Game extends React.Component {
     });
   }
 
+  handleAddVehicleAppear() {
+    this.setState({
+      addVehicleVisible: !this.state.addVehicleVisible
+    });
+  }
+
   handleSubmitNewVehicle(event) {
     vehicleList[vehicleList.length] = {
       vehicle: this.state.customVehicle,
@@ -140,39 +148,41 @@ class Game extends React.Component {
     const { isSnackbarActive } = this.state;
     return (
       <div className="Game">
-        <GameFormPlanet
-          depart={this.state.depart}
-          arrival={this.state.arrival}
-          planetOptions={this.state.planetOptions}
-          handleDepartChange={this.handleDepartChange}
-          handleArrivalChange={this.handleArrivalChange}
-          handleSubmit={this.handleSubmit}
-        />
-        <GameFormVehicle
-          vehicleOptions={this.state.vehicleOptions}
-          handleVehicleChange={this.handleVehicleChange}
-          handleSubmit={this.handleSubmit}
-        />
-        <div className="DivCalcul">
-          <input
-            className="Calcul"
-            type="submit"
-            value="Calculer"
-            onClick={this.handleSubmit}
+        <div className="plan-travel">
+          <h3>Planifier votre voyage</h3>
+          <GameFormPlanet
+            depart={this.state.depart}
+            arrival={this.state.arrival}
+            planetOptions={this.state.planetOptions}
+            handleDepartChange={this.handleDepartChange}
+            handleArrivalChange={this.handleArrivalChange}
+            handleSubmit={this.handleSubmit}
           />
+          <GameFormVehicle
+            vehicleOptions={this.state.vehicleOptions}
+            handleVehicleChange={this.handleVehicleChange}
+            handleSubmit={this.handleSubmit}
+          />
+          <div className="Create">
+            <p className="OrCreate">Ou crées ton véhicule</p>
+            <FABButton colored ripple onClick={this.handleAddVehicleAppear}>
+              <Icon name="+" />
+            </FABButton>
+            {this.state.addVehicleVisible ? (
+              <>
+                <UtilisatorVehicleForm
+                  handleCustomVehicleChange={this.handleCustomVehicleChange}
+                  handleCustomSpeedChange={this.handleCustomSpeedChange}
+                />
+                <input
+                  type="submit"
+                  value="Ajouter"
+                  onClick={this.handleSubmitNewVehicle}
+                />
+              </>
+            ) : null}
+          </div>
         </div>
-        <div className="Create">
-          <p className="OrCreate">Ou crée ton véhicule</p>
-        </div>
-        <UtilisatorVehicleForm
-          handleCustomVehicleChange={this.handleCustomVehicleChange}
-          handleCustomSpeedChange={this.handleCustomSpeedChange}
-        />
-        <input
-          type="submit"
-          value="Ajouter"
-          onClick={this.handleSubmitNewVehicle}
-        />
         <Snackbar
           active={isSnackbarActive}
           onTimeout={this.handleTimeoutSnackbar}
@@ -181,31 +191,48 @@ class Game extends React.Component {
         </Snackbar>
         <br />
 
-        <section className={this.state.resultStatus ? "Result" : "Hidden"}>
-          La distance entre {this.state.depart} et {this.state.arrival} est de{" "}
-          {this.state.distance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
-          km
-          <br />
-          En {this.state.vehicle}, cela prendrai{" "}
-          {this.state.time.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
-          heures pour faire le voyage, ou:
-          <br />
-          <ul>
-            <li>
-              {Math.floor(this.state.time / 24)
-                .toString()
-                .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
-              jours.
-            </li>
-            <li>
-              Soit{" "}
-              {Math.floor(this.state.time / 24 / 365)
-                .toString()
-                .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
-              années
-            </li>
-          </ul>
-        </section>
+        
+          
+          {this.state.resultStatus ? (
+          <section>
+            La distance entre {this.state.depart} et {this.state.arrival} est de{" "}
+            {this.state.distance
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
+            km
+            <br />
+            En {this.state.vehicle}, cela prendrai{" "}
+            {this.state.time.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
+            heures pour faire le voyage, ou:
+            <br />
+            <ul>
+              <li>
+                {Math.floor(this.state.time / 24)
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
+                jours.
+              </li>
+              <li>
+                Soit{" "}
+                {Math.floor(this.state.time / 24 / 365)
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
+                années
+              </li>
+            </ul>
+          </section>
+         ) : (
+          <div className="DivCalcul">
+          <input
+            className="Calcul"
+            type="submit"
+            value="Calculer"
+            onClick={this.handleSubmit}
+          />
+          
+
+        </div>
+         )}
       </div>
     );
   }

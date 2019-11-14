@@ -2,11 +2,13 @@
   color: antiquewhite;
   display: inline-block;
   justify-content: center;
-  text-shadow: 1px 1px 3px black;
-
+  font-size: 2rem;
+  text-shadow: 1px 1px 2px purple;
+  padding: 10% 0;
 }
 
 .Vehicle, select{
   display: flex;
   align-content: space-around;
 }
+
