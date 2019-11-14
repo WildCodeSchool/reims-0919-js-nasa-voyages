@@ -187,14 +187,12 @@ class Game extends React.Component {
           active={isSnackbarActive}
           onTimeout={this.handleTimeoutSnackbar}
         >
-          Vehicule personnalise ajoute !
+          {`${this.state.customVehicle} ajouté à la liste` }
         </Snackbar>
         <br />
 
-        
-          
-          {this.state.resultStatus ? (
-          <section>
+        {this.state.resultStatus ? (
+          <div className = "calculation">
             La distance entre {this.state.depart} et {this.state.arrival} est de{" "}
             {this.state.distance
               .toString()
@@ -220,19 +218,17 @@ class Game extends React.Component {
                 années
               </li>
             </ul>
-          </section>
-         ) : (
+          </div>
+        ) : (
           <div className="DivCalcul">
-          <input
-            className="Calcul"
-            type="submit"
-            value="Calculer"
-            onClick={this.handleSubmit}
-          />
-          
-
-        </div>
-         )}
+            <input
+              className="Calcul"
+              type="submit"
+              value="Calculer"
+              onClick={this.handleSubmit}
+            />
+          </div>
+        )}
       </div>
     );
   }

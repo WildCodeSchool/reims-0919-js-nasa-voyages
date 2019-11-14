@@ -3,6 +3,7 @@
 .Game {
   display: flex;
   justify-content: space-evenly;
+  flex-direction: row;
 }
 
 .Game, .Add{
@@ -39,5 +40,19 @@ input :hover {
 .plan-travel {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+}
+
+.plan-travel p {
+  font-size: 2rem;
+  text-shadow: 1px 1px 2px purple;
+  padding: 10% 0;
+  color: antiquewhite;
+}
+
+.calculation, .DivCalcul {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
