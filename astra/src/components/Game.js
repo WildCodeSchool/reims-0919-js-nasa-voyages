@@ -4,7 +4,7 @@ import GameFormVehicle from "./GameFormVehicle";
 import UtilisatorVehicleForm from "./UtilisatorVehicleForm";
 import vehicleList from "../data/vehicleList";
 import "./Game.css";
-import {Snackbar} from 'react-mdl';
+import { Snackbar } from "react-mdl";
 
 class Game extends React.Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class Game extends React.Component {
       customSpeed: "",
       customVehicle: "",
       resultStatus: false,
-      isSnackbarActive: false,
+      isSnackbarActive: false
     };
     this.handleDepartChange = this.handleDepartChange.bind(this);
     this.handleArrivalChange = this.handleArrivalChange.bind(this);
@@ -65,7 +65,7 @@ class Game extends React.Component {
 
   handleDepartChange(event) {
     this.state.planetList.forEach(planet => {
-      if (planet.name === event.target.value && planet.isPlanet) {
+      if (planet.name === event.target.value) {
         this.setState({
           departPosition: planet.semimajorAxis,
           depart: event.target.value,
@@ -89,7 +89,11 @@ class Game extends React.Component {
   handleVehicleChange(event) {
     vehicleList.forEach(vehicle => {
       if (vehicle.vehicle === event.target.value) {
-        this.setState({ speed: vehicle.speed, vehicle: event.target.value, resultStatus: false });
+        this.setState({
+          speed: vehicle.speed,
+          vehicle: event.target.value,
+          resultStatus: false
+        });
       }
     });
   }
@@ -117,18 +121,17 @@ class Game extends React.Component {
     });
   }
 
-  handleSubmitNewVehicle(event) { 
+  handleSubmitNewVehicle(event) {
     vehicleList[vehicleList.length] = {
       vehicle: this.state.customVehicle,
-      speed: this.state.customSpeed,
+      speed: this.state.customSpeed
     };
     this.setState({
       vehicleOptions: vehicleList.map(option => option.vehicle),
-      isSnackbarActive: true    
+      isSnackbarActive: true
     });
   }
 
-  
   handleTimeoutSnackbar() {
     this.setState({ isSnackbarActive: false });
   }
@@ -172,11 +175,13 @@ class Game extends React.Component {
         />
         <Snackbar
           active={isSnackbarActive}
-          onTimeout={this.handleTimeoutSnackbar}>Vehicule personnalise ajoute !
-          </Snackbar>
-        <br/>
+          onTimeout={this.handleTimeoutSnackbar}
+        >
+          Vehicule personnalise ajoute !
+        </Snackbar>
+        <br />
 
-      <section className={this.state.resultStatus ? "Result" : "Hidden"}>
+        <section className={this.state.resultStatus ? "Result" : "Hidden"}>
           La distance entre {this.state.depart} et {this.state.arrival} est de{" "}
           {this.state.distance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
           km
@@ -190,17 +195,16 @@ class Game extends React.Component {
               {Math.floor(this.state.time / 24)
                 .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
-              jours. 
+              jours.
             </li>
             <li>
-              Soit {" "}
+              Soit{" "}
               {Math.floor(this.state.time / 24 / 365)
                 .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
               années
             </li>
           </ul>
-        
         </section>
       </div>
     );
