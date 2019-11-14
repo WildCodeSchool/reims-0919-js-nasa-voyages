@@ -1,20 +1,61 @@
 const vehicleList = [
   {
-    vehicle: "Car",
+    vehicle: "Chameau",
+    speed: "65"
+  },
+  {
+    vehicle: "Moto",
     speed: "120"
   },
   {
-    vehicle: "Rocket",
-    speed: "39895"
+    vehicle: "Fusée",
+    speed: "12000"
   },
   {
-    vehicle: "Bicyle",
+    vehicle: "Vélo",
     speed: "20"
   },
   {
-    vehicle: "Camel",
-    speed: "65"
+    vehicle: "Avion de chasse",
+    speed: "2778"
+  },
+  {
+    vehicle: "Airbus A380",
+    speed: "1185"
+  },
+  {
+    vehicle: "Hélicoptère de combat",
+    speed: "357"
+  },
+  {
+    vehicle: "Tank",
+    speed: "90"
+  },
+  {
+    vehicle: "Port-avion",
+    speed: "56"
+  },
+  {
+    vehicle: "TGV",
+    speed: "574"
+  },
+  {
+    vehicle: "Course à pied",
+    speed: "10"
+  },
+  {
+    vehicle: "Bugatti Veyron",
+    speed: "431"
+  },
+  {
+    vehicle: "Mobylette",
+    speed: "25"
+  },
+  {
+    vehicle: "Crawl",
+    speed: "3"
   }
+
 ];
 
 export default vehicleList
