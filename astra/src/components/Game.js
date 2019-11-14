@@ -4,7 +4,7 @@ import GameFormVehicle from "./GameFormVehicle";
 import UtilisatorVehicleForm from "./UtilisatorVehicleForm";
 import vehicleList from "../data/vehicleList";
 import "./Game.css";
-import { Snackbar, FABButton, Icon } from "react-mdl";
+import { Snackbar, FABButton, Icon,Button } from "react-mdl";
 
 class Game extends React.Component {
   constructor(props) {
@@ -221,12 +221,16 @@ class Game extends React.Component {
           </div>
         ) : (
           <div className="DivCalcul">
-            <input
-              className="Calcul"
+            <Button
+             raised
+             accent
+             className="Calcul"
               type="submit"
               value="Calculer"
               onClick={this.handleSubmit}
-            />
+             >Calculer
+              
+              </Button>
           </div>
         )}
       </div>
