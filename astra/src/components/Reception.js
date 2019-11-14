@@ -7,7 +7,7 @@ function Reception (){
   return (
     <div className='GReception'>
       <div className='reception'>
-        <p>Notre site se compose d'une partie "Jeu" offrant la possibilité de calculer le temps et la distance d'un astre à un autre avec un moyen de transport original et incongrue. Nous mettons également à disposition un lexique détaillé sur chaque planète.</p>
+        Bienvenue sur Astra, ici tu peux apprendre en t'amusant dans notre partie "Jeu" offrant la possibilité de calculer le temps et la distance d'un astre à un autre avec un moyen de transport original et incongrue. Tu trouvera également un lexique détaillé sur chaque astre.
       </div>
       <div className='GButton'>
         <button className="GameButton"><Link to="/Game" >
