@@ -61,7 +61,24 @@ input :hover {
   color: antiquewhite;
 }
 
+.calculation li {
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px purple;
+  color: antiquewhite;
+
+}
+
 .Calcul {
   max-width: 30%;
   margin: auto;
+}
+
+select {
+  width: 20em;
+  height: 2.5em;
+  background: purple;
+  border-radius: .25em;
+  color: antiquewhite;
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 2px purple;
 }

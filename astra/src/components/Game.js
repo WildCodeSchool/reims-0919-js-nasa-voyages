@@ -164,7 +164,7 @@ class Game extends React.Component {
             handleSubmit={this.handleSubmit}
           />
           <div className="Create">
-            <h3 className="OrCreate">Ou crées ton véhicule</h3>
+            <h3 className="OrCreate">Ou crée ton véhicule</h3>
             <FABButton colored ripple onClick={this.handleAddVehicleAppear}>
               <Icon name="+" />
             </FABButton>
@@ -201,7 +201,7 @@ class Game extends React.Component {
             <br />
             En {this.state.vehicle}, cela prendrai{" "}
             {this.state.time.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
-            heures pour faire le voyage, ou:
+            heures pour faire le voyage, soit:
             <br />
             <ul>
               <li>
