@@ -1,17 +1,17 @@
 import React from "react";
 import "./GameFormVehicle.css";
 
-const GameFormVehicle = (props) => {
+const GameFormVehicle = ({handleSubmit, handleVehicleChange, vehicleOptions}) => {
     return (
       <div className="Vehicle">
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <label className="LabelVehicle">
             Choisis ton véhicule:
-            <select defaultValue = "" onChange={props.handleVehicleChange}>
+            <select defaultValue = "" onChange={handleVehicleChange}>
               <option value="" disabled>
                 Choisissez un véhicule
               </option>
-              {props.vehicleOptions.map(option => {
+              {vehicleOptions.map(option => {
                 return (
                   <option key={`vehicule_${option}`} value={option}>
                     {option}
