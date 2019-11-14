@@ -16,19 +16,28 @@
   align-items: center;
   z-index: 2;
 }
-
-.enter-button {
-  font-size: 48px;
+.buttonBackground{
+  margin-top: 20%;
   border-radius: 10px;
-  background:black;
-  color: antiquewhite;
-  opacity: 0.5;
+  background:linear-gradient(217deg, #00b8ff, #bd00ff);
+  opacity: 0.9;
   z-index: 2;
+  height: 3em;
+  width: 20em;
+  box-shadow: 1px 1px 5px black;
 }
 
-.enter-button:hover {
-  background-color: black;
-  color: grey;
+.enter-button p{
+  font-size: 48px;
+  color: #f6b957;
+  z-index: 2;
+  text-align: center;
+  margin-top: 0.2em;
+  text-shadow: 1px 1px 1px black;
+}
+
+.buttonBackground:hover {
+  opacity: 0.7;
 }
 
 section {
