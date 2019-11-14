@@ -187,7 +187,7 @@ class Game extends React.Component {
           {this.state.distance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
           km
           <br />
-          En {this.state.vehicle}, cela prendrai{" "}
+          En {this.state.vehicle}, à {this.state.speed} km/h, cela prendrai{" "}
           {this.state.time.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
           heures pour faire le voyage, ou:
           <br />
