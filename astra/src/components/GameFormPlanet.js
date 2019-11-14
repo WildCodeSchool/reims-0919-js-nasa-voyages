@@ -15,7 +15,7 @@ const GameFormPlanet = ({handleSubmit, handleDepartChange, planetOptions,handleA
               {planetOptions.map(option => {
                 return (
                   <option key={`depart_${option}`} value={option}>
-                    {option}
+                    {option.replace(/[0-9]/g, "").replace(/\(|\)/g, "")}
                   </option>
                 );
               })}
@@ -33,7 +33,7 @@ const GameFormPlanet = ({handleSubmit, handleDepartChange, planetOptions,handleA
               {planetOptions.map(option => {
                 return (
                   <option key={`arrival_${option}`} value={option}>
-                    {option}
+                    {option.replace(/[0-9]/g, "").replace(/\(|\)/g, "")}
                   </option>
                 );
               })}
