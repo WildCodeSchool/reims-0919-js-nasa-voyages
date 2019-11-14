@@ -39,6 +39,7 @@ a {
   background-color: rgba(5, 22, 45) !important;
   font-size: 2em;
   height: 1.5em;
+  text-shadow: 0px 0px 3px lightblue;
 }
 .navbarList ul a:hover{
   color: lightblue !important;

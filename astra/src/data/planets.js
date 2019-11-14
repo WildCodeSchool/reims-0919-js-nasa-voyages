@@ -47,12 +47,6 @@ const planets = [
       "Neptune, quatrième géante gazeuse, huitième et dernière planète du Système depuis le déclassement de Pluton. Son diamètre est de 49 528 km, elle est la plus petite des géantes gazeuses. Sa température s'élève à -218 °C. Une journée là-bas équivaut à 16 heures et une année sur Terre en vaut 164 et 288 jours sur Neptune. Elle est composé d'hydrogène et d'hélium et tout comme Uranus est principalement composé de méthane, ce qui donne sa couleur bleue. Elle est la géante gazeuse la plus dense (1.64) et la plus massive. Elle possède 14 satellites naturels dont : Triton et Néréide. Distance avec le Soleil : 4.495 milliards de km.",
     image: "https://i.ya-webdesign.com/images/png-neptune.png"
   },
-  {
-    name: "",
-    description:
-      "",
-    image: ""
-  },
 ];
 
 export default planets
