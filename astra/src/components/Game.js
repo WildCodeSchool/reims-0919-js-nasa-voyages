@@ -195,7 +195,7 @@ class Game extends React.Component {
 
         {this.state.resultStatus ? (
           <div className="calculation">
-            La distance entre {this.state.depart} et {this.state.arrival} est de{" "}
+            La distance entre {this.state.depart.replace(/[0-9]/g, "").replace(/\(|\)/g, "")} et {this.state.arrival.replace(/[0-9]/g, "").replace(/\(|\)/g, "")} est de{" "}
             {this.state.distance
               .toString()
               .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
