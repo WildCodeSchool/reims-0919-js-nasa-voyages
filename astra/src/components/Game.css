@@ -30,3 +30,8 @@ input :hover {
 .DivCalcul{
   padding: 2%;
 }
+
+.LinkLexique {
+  color: white;
+  padding: 0.5em 3em 0.5em 3em;
+}

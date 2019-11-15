@@ -4,7 +4,7 @@ import GameFormVehicle from "./GameFormVehicle";
 import UtilisatorVehicleForm from "./UtilisatorVehicleForm";
 import vehicleList from "../data/vehicleList";
 import "./Game.css";
-import { Snackbar } from "react-mdl";
+import { Snackbar, Button } from "react-mdl";
 import { Link } from "react-router-dom"
 
 class Game extends React.Component {
@@ -206,11 +206,11 @@ class Game extends React.Component {
               années
             </li>
           </ul>
-          <button className="LexiqueButton">
+          <Button raised accent>
             <Link to="/Lexique" className="LinkLexique">
               Lexique
             </Link>
-          </button>
+          </Button>
         </section>
       </div>
     );
