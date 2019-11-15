@@ -28,7 +28,6 @@ input :hover {
   justify-content: center;
   text-shadow: 1px 1px 2px black;
   font-size: 2em;
-  line-height: 0%;
 }
 
 .plan-travel select{
@@ -95,4 +94,10 @@ select {
 
 .Utilisator input {
   background-color: purple;
+}
+
+@media only screen and (max-width: 800px) {
+  .Calcule{
+    width: auto;
+  }
 }

@@ -19,3 +19,29 @@ a :hover{
 .application {
   text-align: center;
 }
+
+@media only screen and (max-width: 800px) {
+  .App {
+    height: auto;
+  }
+  .Game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+  .logoAstra img{
+    max-width: 100%;
+    height: auto;
+  }
+  .plan-travel h3{
+    width: auto;
+  }
+  .divCalcul{
+    width: auto;
+  }
+  .mdl-button--accent.mdl-button--accent.mdl-button--raised, .mdl-button--accent.mdl-button--accent.mdl-button--fab{
+    padding: 0;
+  }
+}
