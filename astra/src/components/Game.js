@@ -4,7 +4,7 @@ import GameFormVehicle from "./GameFormVehicle";
 import UtilisatorVehicleForm from "./UtilisatorVehicleForm";
 import vehicleList from "../data/vehicleList";
 import "./Game.css";
-import { Snackbar, FABButton, Icon,Button } from "react-mdl";
+import { Snackbar, FABButton, Icon, Button } from "react-mdl";
 
 class Game extends React.Component {
   constructor(props) {
@@ -174,11 +174,15 @@ class Game extends React.Component {
                   handleCustomVehicleChange={this.handleCustomVehicleChange}
                   handleCustomSpeedChange={this.handleCustomSpeedChange}
                 />
-                <input
+                <Button
+                  raised
+                  accent
                   type="submit"
                   value="Ajouter"
                   onClick={this.handleSubmitNewVehicle}
-                />
+                >
+                  Ajouter
+                </Button>
               </>
             ) : null}
           </div>
@@ -187,12 +191,12 @@ class Game extends React.Component {
           active={isSnackbarActive}
           onTimeout={this.handleTimeoutSnackbar}
         >
-          {`${this.state.customVehicle} ajouté à la liste` }
+          {`${this.state.customVehicle} ajouté à la liste`}
         </Snackbar>
         <br />
 
         {this.state.resultStatus ? (
-          <div className = "calculation">
+          <div className="calculation">
             La distance entre {this.state.depart} et {this.state.arrival} est de{" "}
             {this.state.distance
               .toString()
@@ -211,7 +215,7 @@ class Game extends React.Component {
                 jours.
               </li>
               <li>
-                Soit{" "}
+                ou{" "}
                 {Math.floor(this.state.time / 24 / 365)
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
@@ -222,15 +226,15 @@ class Game extends React.Component {
         ) : (
           <div className="DivCalcul">
             <Button
-             raised
-             accent
-             className="Calcul"
+              raised
+              accent
+              className="Calcul"
               type="submit"
               value="Calculer"
               onClick={this.handleSubmit}
-             >Calculer
-              
-              </Button>
+            >
+              Calculer
+            </Button>
           </div>
         )}
       </div>

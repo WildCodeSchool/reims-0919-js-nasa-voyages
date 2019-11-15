@@ -4,6 +4,8 @@
   display: flex;
   justify-content: space-around;
   flex-direction: row;
+  margin: 0;
+  padding: 0;
 }
 
 .Game, .Add{
@@ -85,4 +87,14 @@ select {
   color: antiquewhite;
   font-size: 1.2rem;
   text-shadow: 1px 1px 2px purple;
+}
+
+.Utilisator {
+  color: antiquewhite;
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 2px purple;
+}
+
+.Utilisator input {
+  background-color: purple;
 }
