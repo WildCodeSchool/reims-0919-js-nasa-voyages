@@ -3,18 +3,23 @@
 .Game {
   display: flex;
   justify-content: space-around;
-  flex-direction: row;
   margin: 0;
   padding: 0;
 }
 
 .Game, .Add{
   text-align: center;
-
 }
 
 input :hover {
   color: brown;
+}
+
+.plan-travel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
 }
 
 .plan-travel h3{
@@ -24,18 +29,6 @@ input :hover {
   text-shadow: 1px 1px 2px black;
   font-size: 2em;
   line-height: 0%;
-}
-
-.Result{
-  color: antiquewhite;
-  text-shadow: 1px 1px 2px black;
-}
-
-.plan-travel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 40%;
 }
 
 .plan-travel select{
@@ -72,6 +65,11 @@ input :hover {
 
 .DivCalcul {
   align-items: center;
+}
+
+.Result{
+  color: antiquewhite;
+  text-shadow: 1px 1px 2px black;
 }
 
 .Calcul {
