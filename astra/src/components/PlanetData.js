@@ -4,8 +4,6 @@ import Lexique from "./Lexique";
 import './Lexique.css';
 import planets from "../data/planets"
 
-
-
 const PlanetData = () => (
   <div className='Lexique'>
     <Lexique />
