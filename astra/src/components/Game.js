@@ -5,7 +5,7 @@ import UtilisatorVehicleForm from "./UtilisatorVehicleForm";
 import vehicleList from "../data/vehicleList";
 import "./Game.css";
 import { Snackbar, FABButton, Icon, Button } from "react-mdl";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 class Game extends React.Component {
   constructor(props) {
@@ -44,10 +44,7 @@ class Game extends React.Component {
       .then(response => response.json())
       .then(data =>
         data.bodies.filter(options => {
-          if (
-            options.isPlanet ||
-            options.englishName === "Sun"
-          ) {
+          if (options.isPlanet || options.englishName === "Sun") {
             this.setState({
               planetList: [...this.state.planetList, options]
             });
@@ -195,7 +192,10 @@ class Game extends React.Component {
 
         {this.state.resultStatus ? (
           <div className="calculation">
-            La distance entre {this.state.depart.replace(/[0-9]/g, "").replace(/\(|\)/g, "")} et {this.state.arrival.replace(/[0-9]/g, "").replace(/\(|\)/g, "")} est de{" "}
+            La distance entre{" "}
+            {this.state.depart.replace(/[0-9]/g, "").replace(/\(|\)/g, "")} et{" "}
+            {this.state.arrival.replace(/[0-9]/g, "").replace(/\(|\)/g, "")} est
+            de{" "}
             {this.state.distance
               .toString()
               .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
@@ -220,16 +220,16 @@ class Game extends React.Component {
                 années
               </li>
               <li>
-                Pour plus d'informations sur votre destination, voir notre lexique ci-desous:
-                <br/>
-              <Button raised accent>
-            <Link to="/Lexique" className="LinkLexique">
-              Lexique
-            </Link>
-            </Button>
+                Pour plus d'informations sur votre destination, voir notre
+                lexique ci-desous:
+                <br />
+                <Button raised accent>
+                  <Link to="/Lexique" className="LinkLexique">
+                    Lexique
+                  </Link>
+                </Button>
               </li>
             </ul>
-            
           </div>
         ) : (
           <div className="DivCalcul">
