@@ -46,10 +46,7 @@ class Game extends React.Component {
         data.bodies.filter(options => {
           if (
             options.isPlanet ||
-            options.englishName === "Moon" ||
-            options.englishName === "Sun" ||
-            options.englishName === "Deimos" ||
-            options.englishName === "Io"
+            options.englishName === "Sun"
           ) {
             this.setState({
               planetList: [...this.state.planetList, options]
