@@ -220,7 +220,7 @@ class Game extends React.Component {
                 années
               </li>
               <li>
-                Pour plus d'informations sur votre destination, n'hésitez pas à consulter notre lexique ci-desous:
+                Pour plus d'informations sur votre destination, voir notre lexique ci-desous:
                 <br/>
               <Button raised accent>
             <Link to="/Lexique" className="LinkLexique">

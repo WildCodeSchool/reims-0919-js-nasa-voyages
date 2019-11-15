@@ -18,7 +18,7 @@ a {
 
 @media only screen and (max-width: 800px) {
   .App {
-    height: auto;
+    height: 200vh;
   }
   .Game {
     display: flex;
@@ -39,5 +39,8 @@ a {
   }
   .mdl-button--accent.mdl-button--accent.mdl-button--raised, .mdl-button--accent.mdl-button--accent.mdl-button--fab{
     padding: 0;
+  }
+  .LinkLexique {
+    box-sizing: border-box;
   }
 }
