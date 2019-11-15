@@ -1,5 +1,4 @@
 import React from "react";
-//import "./GameFormVehicle.css";
 
 const GameFormVehicle = ({handleSubmit, handleVehicleChange, vehicleOptions}) => {
     return (
