@@ -38,9 +38,11 @@ class Home extends React.Component {
           alt="logo astra"
           className="astraLogo"
         />
-        <Link to="/Reception" className="enter-button">
-          Enter
-        </Link>
+        <div className="buttonBackground">
+          <Link to="/Voyage" className="enter-button">
+            <p>Bienvenue</p>
+          </Link>
+        </div>
       </section>
     );
   }

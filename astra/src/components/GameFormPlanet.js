@@ -1,5 +1,4 @@
 import React from "react";
-import "./GameFormPlanet.css";
 
 const GameFormPlanet = ({handleSubmit, handleDepartChange, planetOptions,handleArrivalChange}) => {
   return (

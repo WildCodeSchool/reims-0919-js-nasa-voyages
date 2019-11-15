@@ -8,7 +8,7 @@ const SunData = () => (
   <div className='LexiqueSun'>
     <Lexique />
     {sun.map(item => (
-      <Lexicon name={item.name} description={item.description} image={item.image} />
+      <Lexicon key= {item.name} name={item.name} description={item.description} image={item.image} />
     ))}
   </div>
 );

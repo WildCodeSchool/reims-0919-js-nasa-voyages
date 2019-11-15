@@ -1,21 +1,69 @@
-.Game, .Add{
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
 
+.Game {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+.Game, .Add{
+  text-align: center;
+}
 
 input :hover {
   color: brown;
 }
 
-.OrCreate{
+.plan-travel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+}
+
+.plan-travel h3{
   color: antiquewhite;
   display: flex;
   justify-content: center;
   text-shadow: 1px 1px 2px black;
-  font-size: 1.7em;
-  line-height: 0%;
+  font-size: 2em;
+}
+
+.plan-travel select{
+  margin-bottom: 5%;
+}
+
+.plan-travel p {
+  font-size: 2rem;
+  text-shadow: 1px 1px 2px purple;
+  color: antiquewhite;
+}
+
+.calculation, .DivCalcul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 400px;
+  width: 40%;  
+}
+
+.calculation {
+  margin-top: 2em;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px purple;
+  color: antiquewhite;
+}
+
+.calculation li {
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px purple;
+  color: antiquewhite;
+  list-style: none;
+}
+
+.DivCalcul {
+  align-items: center;
 }
 
 .Result{
@@ -23,10 +71,36 @@ input :hover {
   text-shadow: 1px 1px 2px black;
 }
 
-.Hidden{
-  display: none;
+.Calcul {
+  max-width: 30%;
+  text-align: center;
 }
 
-.DivCalcul{
-  padding: 2%;
+select {
+  width: 20em;
+  height: 2.5em;
+  background: purple;
+  border-radius: .25em;
+  color: antiquewhite;
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 2px purple;
+}
+
+.Utilisator {
+  color: antiquewhite;
+  font-size: 1.1rem;
+  text-shadow: 1px 1px 2px purple;
+}
+
+.Utilisator input {
+  background-color: purple;
+}
+
+.LinkLexique {
+  color: antiquewhite;
+  padding: 0.5em 4em 0.5em 4em;
+}
+
+.OrCreate {
+  margin-bottom: 0;
 }

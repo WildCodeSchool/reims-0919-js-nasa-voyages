@@ -41,12 +41,6 @@ const satellite = [
       "Titan est un satellite naturel de Saturne, il serait très semblable à la Terre, tel qu'elle était il y'a des millions d'années mais en beaucoup plus froid. Il y a des lacs et des rivières mais de part les basses températures, -180 °C, ils sont remplis de méthane liquide et non d'eau. Large d'un diamètre de 5 150 km, ce qui en fait donc le deuxième plus gros satellite de Saturne. Il fait le tour de la planète en 15 jours et est séparé de 1, 222 millions de km. Distance avec le Soleil : 1, 431 milliards de km.",
     image: "https://www.latimes.com/projects/la-sci-saturn-moons-cassini/static/img/titan_2.png"
   },
-  {
-    name: "",
-    description:
-      "",
-    image: ""
-  },
 ];
 
 export default satellite

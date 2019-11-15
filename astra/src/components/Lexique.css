@@ -1,21 +1,22 @@
-.Lexique{
-  background-color:rgba(5, 22, 45);
+.Lexique {
+  background-color: rgba(5, 22, 45);
   color: antiquewhite;
   text-align: justify;
   font-size: 1.2em;
 }
 
-.LexiqueSun{
-  background-color:rgba(5, 22, 45);
+.LexiqueSun {
+  background-color: rgba(5, 22, 45);
   color: antiquewhite;
   text-align: justify;
   font-size: 1.2em;
 }
 
 .Lexique a:hover {
-  color:grey;
+  color: lightblue;
 }
 
-.Lexique li{
+.Lexique li {
   padding: 1%;
+  text-shadow: 0px 0px 2px lightblue;
 }
