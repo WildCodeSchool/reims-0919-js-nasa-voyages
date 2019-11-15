@@ -95,9 +95,3 @@ select {
 .Utilisator input {
   background-color: purple;
 }
-
-@media only screen and (max-width: 800px) {
-  .Calcule{
-    width: auto;
-  }
-}
