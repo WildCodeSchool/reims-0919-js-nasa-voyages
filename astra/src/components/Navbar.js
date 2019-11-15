@@ -7,8 +7,7 @@ function Navbar (){
     <div className='navbar'>
     	<div className='navbarList'>
         <ul>
-        <li><Link to='/Reception'>Accueil</Link></li>
-          <li><Link to='/Game'>Jeu</Link></li>
+          <li><Link to='/Voyage'>Voyage</Link></li>
           <li><Link to='/Lexique'>Lexique</Link></li>
         </ul>
       </div>

@@ -12,10 +12,6 @@ a {
   color: antiquewhite;
 }
 
-a :hover{
-  color: grey;
-}
-
 .application {
   text-align: center;
 }

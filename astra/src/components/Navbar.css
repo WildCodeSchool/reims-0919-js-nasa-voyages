@@ -19,6 +19,7 @@
 .navbarList ul li {
   text-align: left;
   list-style: none;
+  margin-top: 0.25em;
 }
 
 a {
@@ -35,11 +36,13 @@ a {
 .navbarList ul{
   display: flex;
   justify-content: space-around;
-  background-color: rgba(5, 22, 45);
-  font-size: 1.4em;
+  background-color: rgba(5, 22, 45) !important;
+  font-size: 2em;
+  height: 1.5em;
+  text-shadow: 0px 0px 3px lightblue;
 }
 .navbarList ul a:hover{
-  color: grey;
+  color: lightblue !important;
 }
 
 .navbar, .logoAstra {

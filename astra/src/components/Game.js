@@ -5,6 +5,7 @@ import UtilisatorVehicleForm from "./UtilisatorVehicleForm";
 import vehicleList from "../data/vehicleList";
 import "./Game.css";
 import { Snackbar, FABButton, Icon, Button } from "react-mdl";
+import { Link } from "react-router-dom"
 
 class Game extends React.Component {
   constructor(props) {
@@ -191,7 +192,7 @@ class Game extends React.Component {
           active={isSnackbarActive}
           onTimeout={this.handleTimeoutSnackbar}
         >
-          {`${this.state.customVehicle} ajouté à la liste`}
+          {`${this.state.customVehicle} ajouté à la liste des véhicules`}
         </Snackbar>
         <br />
 
@@ -221,7 +222,17 @@ class Game extends React.Component {
                   .replace(/\B(?=(\d{3})+(?!\d))/g, " ")}{" "}
                 années
               </li>
+              <li>
+                Pour plus d'informations sur votre destination, n'hésitez pas à consulter notre lexique ci-desous:
+                <br/>
+              <Button raised accent>
+            <Link to="/Lexique" className="LinkLexique">
+              Lexique
+            </Link>
+            </Button>
+              </li>
             </ul>
+            
           </div>
         ) : (
           <div className="DivCalcul">

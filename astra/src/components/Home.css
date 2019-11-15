@@ -16,20 +16,33 @@
   align-items: center;
   z-index: 2;
 }
-
-.enter-button {
-  font-size: 48px;
+.buttonBackground{
+  margin-top: 20%;
   border-radius: 10px;
-  background:black;
-  color: antiquewhite;
-  opacity: 0.5;
+  background: rgba(5, 22, 45);
+  opacity: 0.9;
   z-index: 2;
+  height: 3em;
+  width: 20em;
+  box-shadow: 1px 1px 5px black;
 }
 
-.enter-button:hover {
-  background-color: black;
-  color: grey;
+.enter-button p{
+  font-size: 48px;
+  z-index: 2;
+  text-align: center;
+  margin-top: 0.2em;
+  text-shadow: 0px 0px 3px lightgray;
 }
+
+.buttonBackground:hover {
+  opacity: 0.9;
+  color: lightblue;
+}
+
+.enter-button p:hover{
+  color: lightblue
+} 
 
 section {
   display: flex;

@@ -8,7 +8,7 @@ const SatelliteData = () => (
   <div className='Lexique'>
     <Lexique/>
     {satellite.map(item => (
-      <Lexicon name={item.name} description={item.description} image={item.image}/>
+      <Lexicon key= {item.name} name={item.name} description={item.description} image={item.image}/>
     ))}
   </div>
 );

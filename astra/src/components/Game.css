@@ -95,3 +95,12 @@ select {
 .Utilisator input {
   background-color: purple;
 }
+
+.LinkLexique {
+  color: antiquewhite;
+  padding: 0.5em 4em 0.5em 4em;
+}
+
+.OrCreate {
+  margin-bottom: 0;
+}
